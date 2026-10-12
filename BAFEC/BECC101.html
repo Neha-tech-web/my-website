@@ -1,0 +1,1924 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BECC-101 Microeconomics — दिसंबर 2026 हिंदी नोट्स</title>
+<style>
+/* ==================== RESET & VARS ==================== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --primary: #5e35b1;
+  --primary-dark: #311b92;
+  --primary-light: #ede7f6;
+  --accent: #00bfa5;
+  --accent-dark: #00796b;
+  --warn: #f9a825;
+  --danger: #e53935;
+  --pink: #d81b60;
+  --blue: #1e88e5;
+  --ink: #1a1a2e;
+  --ink-soft: #4a4a68;
+  --bg: #f7f5ff;
+  --card: #ffffff;
+  --border: #e4e0f0;
+  --shadow-sm: 0 2px 8px rgba(94,53,177,.08);
+  --shadow-md: 0 6px 24px rgba(94,53,177,.12);
+  --shadow-lg: 0 12px 40px rgba(94,53,177,.18);
+  --radius: 14px;
+  --radius-sm: 10px;
+  --font: "Nirmala UI", "Noto Sans Devanagari", "Mangal", -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+[data-theme="dark"] {
+  --ink: #e8e6f5;
+  --ink-soft: #b0aecb;
+  --bg: #12101e;
+  --card: #1e1b2e;
+  --border: #2d2942;
+  --primary-light: #2a2247;
+  --shadow-md: 0 6px 24px rgba(0,0,0,.5);
+}
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.65;
+  font-size: 15px;
+  overflow-x: hidden;
+  transition: background .3s, color .3s;
+}
+
+/* ==================== PROGRESS BAR ==================== */
+#progress {
+  position: fixed; top: 0; left: 0; height: 4px; width: 0%;
+  background: linear-gradient(90deg, var(--primary), var(--accent), var(--warn));
+  z-index: 9999; transition: width .1s;
+  box-shadow: 0 0 12px var(--accent);
+}
+
+/* ==================== NAVBAR ==================== */
+.navbar {
+  position: sticky; top: 0; z-index: 1000;
+  background: rgba(255,255,255,.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+  padding: 10px 16px;
+  display: flex; align-items: center; gap: 12px;
+  box-shadow: var(--shadow-sm);
+}
+[data-theme="dark"] .navbar { background: rgba(30,27,46,.85); }
+.navbar .brand {
+  font-weight: 800; color: var(--primary); font-size: 16px;
+  display: flex; align-items: center; gap: 8px;
+}
+.navbar .brand .dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%,100% { transform: scale(1); opacity:1; }
+  50% { transform: scale(1.25); opacity:.7; }
+}
+.navbar .spacer { flex: 1; }
+.search-box {
+  flex: 1; max-width: 380px; position: relative;
+}
+.search-box input {
+  width: 100%; padding: 9px 14px 9px 36px;
+  border: 1.5px solid var(--border); border-radius: 99px;
+  background: var(--card); color: var(--ink); font-family: inherit; font-size: 14px;
+  transition: all .25s; outline: none;
+}
+.search-box input:focus { border-color: var(--primary); box-shadow: 0 0 0 4px var(--primary-light); }
+.search-box::before {
+  content: "🔍"; position: absolute; left: 12px; top: 50%;
+  transform: translateY(-50%); font-size: 14px; opacity: .6;
+}
+.icon-btn {
+  width: 40px; height: 40px; border-radius: 50%;
+  border: 1.5px solid var(--border); background: var(--card);
+  color: var(--ink); cursor: pointer; font-size: 18px;
+  display: flex; align-items: center; justify-content: center;
+  transition: all .25s; flex-shrink: 0;
+}
+.icon-btn:hover { background: var(--primary-light); border-color: var(--primary); transform: translateY(-2px); }
+
+/* ==================== HERO / COVER ==================== */
+.hero {
+  min-height: 92vh;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; padding: 40px 20px;
+  background: radial-gradient(ellipse at top left, #7c4dff33, transparent 60%),
+              radial-gradient(ellipse at bottom right, #00bfa533, transparent 60%),
+              linear-gradient(135deg, #f3e5f5, #e8eaf6, #e0f2f1);
+  position: relative; overflow: hidden;
+}
+[data-theme="dark"] .hero {
+  background: radial-gradient(ellipse at top left, #7c4dff22, transparent 60%),
+              radial-gradient(ellipse at bottom right, #00bfa522, transparent 60%),
+              linear-gradient(135deg, #1a1730, #12101e);
+}
+.hero::before, .hero::after {
+  content: ""; position: absolute; border-radius: 50%; filter: blur(60px); opacity: .5;
+  animation: float 8s ease-in-out infinite;
+}
+.hero::before { width: 300px; height: 300px; background: #b388ff; top: -80px; left: -80px; }
+.hero::after  { width: 260px; height: 260px; background: #4db6ac; bottom: -80px; right: -80px; animation-delay: 3s; }
+@keyframes float { 0%,100% { transform: translate(0,0); } 50% { transform: translate(30px,-30px); } }
+
+.hero-content { position: relative; z-index: 2; max-width: 800px; }
+.hero .badge {
+  display: inline-block; padding: 6px 16px; border-radius: 99px;
+  background: linear-gradient(135deg, var(--primary), var(--pink));
+  color: #fff; font-size: 12px; font-weight: 700; letter-spacing: 1px;
+  text-transform: uppercase; margin-bottom: 20px;
+  box-shadow: 0 4px 14px rgba(94,53,177,.35);
+}
+.hero h1 {
+  font-size: clamp(32px, 8vw, 62px); line-height: 1.1; font-weight: 900;
+  background: linear-gradient(135deg, var(--primary-dark), var(--pink), var(--accent-dark));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  margin-bottom: 14px; letter-spacing: -.5px;
+}
+.hero h2 {
+  font-size: clamp(16px, 3.6vw, 22px); color: var(--ink-soft); font-weight: 500;
+  margin-bottom: 10px;
+}
+.hero p.lead {
+  font-size: clamp(14px, 2.6vw, 17px); color: var(--ink-soft); max-width: 620px;
+  margin: 16px auto 28px;
+}
+.hero-stats {
+  display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-bottom: 30px;
+}
+.stat-chip {
+  background: var(--card); border: 1.5px solid var(--border);
+  border-radius: 14px; padding: 10px 18px; box-shadow: var(--shadow-sm);
+  min-width: 110px;
+}
+.stat-chip .num {
+  font-size: 22px; font-weight: 900; display: block;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.stat-chip .lbl { font-size: 11px; color: var(--ink-soft); font-weight: 600; text-transform: uppercase; letter-spacing: .5px; }
+.hero-btns { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+.btn {
+  padding: 13px 26px; border-radius: 99px; font-size: 15px; font-weight: 700;
+  cursor: pointer; border: none; font-family: inherit;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: all .25s; text-decoration: none;
+}
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary), var(--pink));
+  color: #fff; box-shadow: 0 6px 20px rgba(94,53,177,.35);
+}
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(94,53,177,.45); }
+.btn-ghost {
+  background: var(--card); color: var(--primary); border: 2px solid var(--primary);
+}
+.btn-ghost:hover { background: var(--primary-light); transform: translateY(-3px); }
+
+/* ==================== LAYOUT ==================== */
+.layout {
+  max-width: 1400px; margin: 0 auto;
+  display: grid; grid-template-columns: 280px 1fr;
+  gap: 32px; padding: 40px 20px 80px;
+}
+.toc-sidebar {
+  position: sticky; top: 80px; align-self: start;
+  max-height: calc(100vh - 100px); overflow-y: auto;
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 20px;
+  box-shadow: var(--shadow-sm);
+}
+.toc-sidebar h3 {
+  font-size: 14px; text-transform: uppercase; letter-spacing: 1px;
+  color: var(--primary); margin-bottom: 14px;
+  padding-bottom: 10px; border-bottom: 2px solid var(--primary-light);
+}
+.toc-sidebar ol { list-style: none; counter-reset: toc; }
+.toc-sidebar li { counter-increment: toc; margin: 3px 0; }
+.toc-sidebar a {
+  display: flex; gap: 10px; padding: 7px 10px; border-radius: 8px;
+  color: var(--ink-soft); text-decoration: none; font-size: 13.5px;
+  transition: all .2s; line-height: 1.4;
+}
+.toc-sidebar a::before {
+  content: counter(toc); flex-shrink: 0;
+  width: 22px; height: 22px; border-radius: 50%;
+  background: var(--primary-light); color: var(--primary);
+  font-size: 11px; font-weight: 800;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.toc-sidebar a:hover, .toc-sidebar a.active {
+  background: linear-gradient(90deg, var(--primary-light), transparent);
+  color: var(--primary); transform: translateX(4px);
+}
+.toc-sidebar a.active::before { background: var(--primary); color: #fff; }
+
+.content { min-width: 0; }
+
+/* ==================== CARDS / QUESTIONS ==================== */
+.q-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 26px;
+  margin-bottom: 24px; box-shadow: var(--shadow-sm);
+  transition: all .3s; position: relative;
+  opacity: 0; transform: translateY(20px);
+}
+.q-card.visible { opacity: 1; transform: translateY(0); }
+.q-card:hover { box-shadow: var(--shadow-md); border-color: var(--primary-light); }
+.q-card h2 {
+  font-size: clamp(19px, 3vw, 23px); font-weight: 800;
+  color: var(--primary-dark); margin-bottom: 18px;
+  display: flex; gap: 12px; align-items: flex-start; line-height: 1.35;
+}
+[data-theme="dark"] .q-card h2 { color: #b39ddb; }
+.q-card h2 .qnum {
+  flex-shrink: 0;
+  background: linear-gradient(135deg, var(--primary), var(--pink));
+  color: #fff; width: 40px; height: 40px; border-radius: 12px;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 16px; font-weight: 900;
+  box-shadow: 0 4px 12px rgba(94,53,177,.3);
+}
+.q-card h3 {
+  font-size: 15px; font-weight: 700; color: var(--accent-dark);
+  margin: 20px 0 8px; display: flex; align-items: center; gap: 8px;
+}
+.q-card h3::before { content: "▸"; color: var(--pink); font-size: 18px; }
+.q-card h4 { font-size: 14px; font-weight: 700; color: var(--primary); margin: 12px 0 6px; }
+.q-card p { margin: 8px 0; color: var(--ink); }
+.q-card ul, .q-card ol { margin: 8px 0 8px 20px; }
+.q-card li { margin: 5px 0; }
+.q-card strong, .q-card b { color: var(--primary-dark); font-weight: 700; }
+[data-theme="dark"] .q-card strong, [data-theme="dark"] .q-card b { color: #b39ddb; }
+
+/* ==================== COLORED BOXES ==================== */
+.box {
+  border-radius: var(--radius-sm); padding: 14px 18px; margin: 14px 0;
+  position: relative; border-left: 5px solid;
+  transition: transform .2s;
+}
+.box:hover { transform: translateX(3px); }
+.box.formula {
+  background: linear-gradient(90deg, #fff8e1, #fffde7);
+  border-color: var(--warn);
+}
+[data-theme="dark"] .box.formula { background: linear-gradient(90deg,#3a3018,#2a2414); }
+.box.formula b { color: var(--danger); }
+.box.key {
+  background: linear-gradient(90deg, #e3f2fd, #e1f5fe);
+  border-color: var(--blue);
+}
+[data-theme="dark"] .box.key { background: linear-gradient(90deg,#1a2840,#162236); }
+.box.example {
+  background: linear-gradient(90deg, #e8f5e9, #f1f8e9);
+  border-color: #2e7d32;
+}
+[data-theme="dark"] .box.example { background: linear-gradient(90deg,#1a2e1e,#162616); }
+.box.note {
+  background: linear-gradient(90deg, #fce4ec, #fce4ec);
+  border-color: var(--pink);
+}
+[data-theme="dark"] .box.note { background: linear-gradient(90deg,#331a24,#2a1520); }
+.box.answer {
+  background: linear-gradient(90deg, #ede7f6, #e8eaf6);
+  border-color: var(--primary);
+}
+[data-theme="dark"] .box.answer { background: linear-gradient(90deg,#241a3a,#1e1732); }
+.box.alert {
+  background: linear-gradient(90deg, #fff3e0, #ffecb3);
+  border-color: #ef6c00;
+}
+[data-theme="dark"] .box.alert { background: linear-gradient(90deg,#3a2a10,#2e2010); }
+
+/* ==================== KEYWORDS ==================== */
+.kw {
+  margin: 14px 0 4px; padding: 12px;
+  background: var(--bg); border-radius: var(--radius-sm);
+  border: 1px dashed var(--border);
+}
+.kw::before {
+  content: "🏷️ Keywords:"; display: block; font-weight: 700;
+  font-size: 12px; color: var(--primary); margin-bottom: 6px;
+}
+.kw span {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--primary-light), #e8eaf6);
+  color: var(--primary-dark); border-radius: 99px;
+  padding: 4px 12px; margin: 3px 4px 3px 0;
+  font-size: 12px; font-weight: 600;
+  border: 1px solid transparent; transition: all .2s;
+}
+[data-theme="dark"] .kw span { background: linear-gradient(135deg,#2a2247,#1e1732); color: #b39ddb; }
+.kw span:hover { border-color: var(--primary); transform: translateY(-2px); }
+
+/* ==================== TABLES ==================== */
+.table-wrap { overflow-x: auto; margin: 14px 0; border-radius: var(--radius-sm); box-shadow: var(--shadow-sm); -webkit-overflow-scrolling: touch; }
+table { border-collapse: collapse; width: 100%; min-width: 500px; font-size: 13.5px; background: var(--card); }
+th {
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+  color: #fff; padding: 10px 12px; text-align: left; font-weight: 700;
+  font-size: 13px; letter-spacing: .3px;
+}
+td { padding: 9px 12px; border-bottom: 1px solid var(--border); color: var(--ink); }
+tr:last-child td { border-bottom: none; }
+tr:nth-child(even) td { background: rgba(94,53,177,.03); }
+[data-theme="dark"] tr:nth-child(even) td { background: rgba(179,157,219,.05); }
+tr:hover td { background: var(--primary-light); }
+[data-theme="dark"] tr:hover td { background: #2a2247; }
+
+/* ==================== SVG DIAGRAMS ==================== */
+.diagram {
+  text-align: center; margin: 18px 0; padding: 14px;
+  background: linear-gradient(135deg, #fafbff, #f4f1ff);
+  border-radius: var(--radius-sm); border: 1px solid var(--border);
+  overflow-x: auto;
+}
+[data-theme="dark"] .diagram { background: linear-gradient(135deg,#1a1730,#221c38); }
+.diagram svg { max-width: 100%; height: auto; }
+.diagram .cap {
+  font-size: 12px; color: var(--ink-soft); margin-top: 8px;
+  font-style: italic;
+}
+
+/* ==================== FINAL SECTION HEADER ==================== */
+.section-head {
+  text-align: center; margin: 60px 0 30px;
+  padding: 30px 20px;
+  background: linear-gradient(135deg, var(--primary), var(--pink));
+  border-radius: var(--radius); color: #fff;
+  box-shadow: var(--shadow-md);
+}
+.section-head h2 { font-size: clamp(22px, 4vw, 30px); color: #fff; margin: 0; }
+.section-head p { opacity: .9; margin-top: 8px; }
+
+/* ==================== FOOTER ==================== */
+footer {
+  text-align: center; padding: 40px 20px;
+  color: var(--ink-soft); font-size: 13px;
+  border-top: 1px solid var(--border); margin-top: 40px;
+}
+footer .heart { color: var(--pink); }
+
+/* ==================== FLOATING ACTIONS ==================== */
+.fab-group {
+  position: fixed; bottom: 20px; right: 20px; z-index: 900;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.fab {
+  width: 52px; height: 52px; border-radius: 50%; border: none;
+  background: linear-gradient(135deg, var(--primary), var(--pink));
+  color: #fff; font-size: 20px; cursor: pointer;
+  box-shadow: 0 6px 20px rgba(94,53,177,.4);
+  display: flex; align-items: center; justify-content: center;
+  transition: all .25s;
+}
+.fab:hover { transform: scale(1.1) translateY(-3px); }
+.fab.secondary { background: linear-gradient(135deg, var(--accent), var(--accent-dark)); }
+
+/* ==================== SEARCH HIGHLIGHT ==================== */
+mark { background: #fff59d; color: #000; padding: 0 3px; border-radius: 3px; }
+[data-theme="dark"] mark { background: #ffd54f; color: #000; }
+.q-card.hidden { display: none; }
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; padding: 24px 14px 80px; gap: 20px; }
+  .toc-sidebar {
+    position: fixed; top: 0; left: -100%; height: 100vh; width: 290px;
+    max-height: 100vh; z-index: 1100; border-radius: 0;
+    transition: left .3s; padding-top: 70px;
+    box-shadow: 0 0 40px rgba(0,0,0,.3);
+  }
+  .toc-sidebar.open { left: 0; }
+  .toc-backdrop {
+    position: fixed; inset: 0; background: rgba(0,0,0,.5);
+    z-index: 1050; opacity: 0; pointer-events: none; transition: opacity .3s;
+  }
+  .toc-backdrop.show { opacity: 1; pointer-events: auto; }
+  .q-card { padding: 20px 16px; }
+  .navbar .brand span.text { display: none; }
+  .search-box { max-width: 100%; }
+}
+@media (max-width: 500px) {
+  body { font-size: 14.5px; }
+  .hero { min-height: 88vh; }
+  .hero-stats { gap: 8px; }
+  .stat-chip { min-width: 90px; padding: 8px 12px; }
+  .stat-chip .num { font-size: 18px; }
+  .q-card h2 { font-size: 17px; gap: 9px; }
+  .q-card h2 .qnum { width: 34px; height: 34px; font-size: 14px; }
+  .btn { padding: 11px 20px; font-size: 14px; }
+  .fab { width: 46px; height: 46px; font-size: 18px; }
+}
+
+/* ==================== PRINT (PDF) ==================== */
+@media print {
+  @page { size: A4; margin: 14mm 12mm; }
+  html, body { background: #fff !important; color: #000 !important; font-size: 12pt; }
+  .navbar, .fab-group, .hero-btns, .search-box, .icon-btn, .toc-backdrop,
+  #progress, .stat-chip { display: none !important; }
+  .hero { min-height: auto; page-break-after: always; padding: 20px; background: #fff !important; }
+  .hero::before, .hero::after { display: none; }
+  .hero h1 { color: #1a237e !important; -webkit-text-fill-color: #1a237e; background: none; }
+  .hero h2, .hero p { color: #333 !important; }
+  .layout { display: block; padding: 0; max-width: 100%; }
+  .toc-sidebar {
+    position: static !important; left: auto !important; width: 100% !important;
+    height: auto !important; max-height: none !important;
+    page-break-after: always; box-shadow: none !important;
+    background: #fff !important; border: 1px solid #ccc;
+  }
+  .toc-sidebar a { color: #000 !important; }
+  .q-card {
+    opacity: 1 !important; transform: none !important;
+    page-break-inside: avoid; box-shadow: none !important;
+    border: 1px solid #ddd; margin-bottom: 16px;
+    background: #fff !important;
+  }
+  .q-card h2 { color: #1a237e !important; }
+  .q-card h3 { color: #00695c !important; }
+  .q-card b, .q-card strong { color: #4a148c !important; }
+  .q-card h2 .qnum {
+    background: #4a148c !important; -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .box, .kw, .diagram, table, th {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    page-break-inside: avoid;
+  }
+  .box { background: #f9f9f9 !important; }
+  .kw span { background: #ede7f6 !important; color: #311b92 !important; }
+  .diagram { background: #fafafa !important; }
+  th { background: #1a237e !important; color: #fff !important; }
+  .section-head { background: #4a148c !important; color: #fff !important; page-break-before: always; }
+  .section-head h2, .section-head p { color: #fff !important; }
+  footer { page-break-before: avoid; }
+  .q-card.hidden { display: block !important; }
+  a { color: #000 !important; text-decoration: none !important; }
+}
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<!-- ==================== NAVBAR ==================== -->
+<nav class="navbar">
+  <button class="icon-btn" id="menuBtn" aria-label="Menu">☰</button>
+  <div class="brand">
+    <span class="dot"></span>
+    <span class="text">BECC-101</span>
+  </div>
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="खोजें... (जैसे: लोच, PPC)">
+  </div>
+  <button class="icon-btn" id="themeBtn" aria-label="Theme">🌙</button>
+  <button class="icon-btn" id="printBtn" aria-label="PDF">📥</button>
+</nav>
+
+<!-- ==================== HERO ==================== -->
+<header class="hero">
+  <div class="hero-content">
+    <span class="badge">IGNOU • दिसंबर 2026</span>
+    <h1>BECC-101<br>Introductory Microeconomics</h1>
+    <h2>व्यष्टि अर्थशास्त्र का परिचय — हिंदी माध्यम</h2>
+    <p class="lead">20 महत्वपूर्ण प्रश्न · विस्तृत हल · रंगीन चित्र · सूत्र · संख्यात्मक उदाहरण · परीक्षा में लिखने योग्य उत्तर · मास्टर फॉर्मूला शीट</p>
+    <div class="hero-stats">
+      <div class="stat-chip"><span class="num">20</span><span class="lbl">प्रश्न</span></div>
+      <div class="stat-chip"><span class="num">14</span><span class="lbl">चित्र</span></div>
+      <div class="stat-chip"><span class="num">27</span><span class="lbl">सूत्र</span></div>
+      <div class="stat-chip"><span class="num">15</span><span class="lbl">अभ्यास</span></div>
+    </div>
+    <div class="hero-btns">
+      <button class="btn btn-primary" onclick="document.getElementById('q1').scrollIntoView()">📖 पढ़ना शुरू करें</button>
+      <button class="btn btn-ghost" onclick="window.print()">📥 PDF डाउनलोड</button>
+    </div>
+  </div>
+</header>
+
+<!-- ==================== LAYOUT ==================== -->
+<div class="layout">
+
+  <!-- ============ SIDEBAR TOC ============ -->
+  <aside class="toc-sidebar" id="tocSidebar">
+    <h3>📑 विषय-सूची</h3>
+    <ol id="tocList">
+      <li><a href="#q1">सूक्ष्म vs समष्टि अर्थशास्त्र</a></li>
+      <li><a href="#q2">उत्पादन संभावना वक्र (PPC)</a></li>
+      <li><a href="#q3">माँग का नियम</a></li>
+      <li><a href="#q4">माँग की कीमत लोच</a></li>
+      <li><a href="#q5">सीमांत उपयोगिता ह्रास नियम</a></li>
+      <li><a href="#q6">उदासीनता वक्र</a></li>
+      <li><a href="#q7">बजट रेखा व उपभोक्ता संतुलन</a></li>
+      <li><a href="#q8">परिवर्तनशील अनुपात का नियम</a></li>
+      <li><a href="#q9">अल्पकालीन लागत वक्र</a></li>
+      <li><a href="#q10">पूर्ण प्रतियोगिता संतुलन</a></li>
+      <li><a href="#q11">एकाधिकार में कीमत निर्धारण</a></li>
+      <li><a href="#q12">PC vs Monopoly</a></li>
+      <li><a href="#q13">एकाधिकारात्मक प्रतियोगिता</a></li>
+      <li><a href="#q14">अल्पाधिकार व किंक्ड माँग</a></li>
+      <li><a href="#q15">मजदूरी निर्धारण</a></li>
+      <li><a href="#q16">उपभोक्ता व उत्पादक अधिशेष</a></li>
+      <li><a href="#q17">पैरेटो दक्षता</a></li>
+      <li><a href="#q18">बाजार विफलता व बाह्यताएँ</a></li>
+      <li><a href="#q19">सार्वजनिक वस्तुएँ</a></li>
+      <li><a href="#q20">संख्यात्मक प्रश्न</a></li>
+      <li><a href="#formulas">📘 मास्टर फॉर्मूला शीट</a></li>
+      <li><a href="#compare">📊 तुलना तालिकाएँ</a></li>
+      <li><a href="#tips">✍️ उत्तर-लेखन सुझाव</a></li>
+      <li><a href="#practice">❓ अभ्यास प्रश्न</a></li>
+      <li><a href="#revision">⚡ क्विक रिवीजन</a></li>
+    </ol>
+  </aside>
+  <div class="toc-backdrop" id="tocBackdrop"></div>
+
+  <!-- ============ MAIN CONTENT ============ -->
+  <main class="content">
+
+  <!-- ============ Q1 ============ -->
+  <article class="q-card" id="q1">
+    <h2><span class="qnum">1</span>सूक्ष्म अर्थशास्त्र और समष्टि अर्थशास्त्र में अंतर</h2>
+
+    <h3>परिचय और परिभाषा</h3>
+    <p><b>सूक्ष्म अर्थशास्त्र (Microeconomics):</b> वह शाखा जो व्यक्तिगत आर्थिक इकाइयों — एक उपभोक्ता, एक फर्म, एक बाजार, एक वस्तु की कीमत — के व्यवहार का अध्ययन करती है। 'Mikros' = छोटा।</p>
+    <p><b>समष्टि अर्थशास्त्र (Macroeconomics):</b> वह शाखा जो समग्र अर्थव्यवस्था के बड़े चरों — राष्ट्रीय आय, कुल रोजगार, सामान्य कीमत स्तर, आर्थिक वृद्धि — का अध्ययन करती है। 'Makros' = बड़ा।</p>
+
+    <h3>विस्तृत व्याख्या</h3>
+    <p>सूक्ष्म अर्थशास्त्र को <b>"कीमत सिद्धांत (Price Theory)"</b> कहा जाता है, क्योंकि यह व्यक्तिगत वस्तुओं की कीमत निर्धारण की व्याख्या करता है। समष्टि अर्थशास्त्र को <b>"आय एवं रोजगार सिद्धांत"</b> कहा जाता है। दोनों पूरक हैं — एक किसान की गेहूँ की माँग सूक्ष्म है, देश की कुल खाद्य माँग समष्टि है।</p>
+
+    <h3>मुख्य अंतर</h3>
+    <div class="table-wrap">
+    <table>
+      <tr><th>आधार</th><th>सूक्ष्म अर्थशास्त्र</th><th>समष्टि अर्थशास्त्र</th></tr>
+      <tr><td>अध्ययन इकाई</td><td>व्यक्तिगत उपभोक्ता/फर्म</td><td>समग्र अर्थव्यवस्था</td></tr>
+      <tr><td>मुख्य चर</td><td>व्यक्तिगत कीमत, माँग</td><td>राष्ट्रीय आय, GNP</td></tr>
+      <tr><td>उपकरण</td><td>माँग-पूर्ति, उपयोगिता</td><td>GDP, राजकोषीय नीति</td></tr>
+      <tr><td>उदाहरण</td><td>चीनी की कीमत</td><td>बेरोजगारी दर</td></tr>
+      <tr><td>संस्थापक</td><td>एडम स्मिथ (1776)</td><td>जे. एम. कीन्स (1936)</td></tr>
+    </table>
+    </div>
+
+    <div class="box answer">
+      <b>📝 परीक्षा में लिखने योग्य आदर्श उत्तर</b><br>
+      <b>भूमिका:</b> अर्थशास्त्र के अध्ययन को रैग्नर फ्रिश ने दो भागों में बाँटा — सूक्ष्म और समष्टि।<br>
+      <b>मुख्य भाग:</b> दोनों की परिभाषाएँ → 5-6 अंतर तालिका में → प्रत्येक का उदाहरण।<br>
+      <b>निष्कर्ष:</b> दोनों पूरक हैं; संपूर्ण विश्लेषण के लिए समग्र दृष्टिकोण आवश्यक।
+    </div>
+
+    <div class="kw"><span>Price Theory</span><span>आय एवं रोजगार सिद्धांत</span><span>एडम स्मिथ</span><span>कीन्स</span><span>पूरक दृष्टिकोण</span></div>
+
+    <div class="box key"><b>त्वरित पुनरावृत्ति:</b> सूक्ष्म = व्यक्तिगत इकाई · समष्टि = समग्र · सूक्ष्म के पिता = एडम स्मिथ · समष्टि के पिता = कीन्स · दोनों पूरक।</div>
+  </article>
+
+  <!-- ============ Q2 ============ -->
+  <article class="q-card" id="q2">
+    <h2><span class="qnum">2</span>उत्पादन संभावना वक्र (PPC)</h2>
+
+    <h3>परिभाषा</h3>
+    <p>PPC वह वक्र है जो दो वस्तुओं के उन सभी संभावित संयोजनों को दिखाता है जिन्हें एक अर्थव्यवस्था अपने सीमित संसाधनों और दी हुई तकनीक के अंतर्गत अधिकतम कुशलता से उत्पादित कर सकती है। इसे <b>Production Possibility Frontier (PPF)</b> या <b>Transformation Curve</b> भी कहते हैं।</p>
+
+    <h3>मान्यताएँ</h3>
+    <ul>
+      <li>केवल दो वस्तुएँ उत्पादित होती हैं।</li>
+      <li>संसाधन पूर्ण एवं कुशल उपयोग में।</li>
+      <li>तकनीक स्थिर।</li>
+      <li>संसाधन स्थानांतरण योग्य।</li>
+    </ul>
+
+    <h3>विशेषताएँ</h3>
+    <ul>
+      <li>मूल बिंदु की ओर <b>अवतल</b>।</li>
+      <li><b>ऋणात्मक ढाल</b>।</li>
+      <li><b>अवसर लागत</b> का प्रतीक।</li>
+      <li>भीतर = अपूर्ण रोजगार; बाहर = अप्राप्य।</li>
+    </ul>
+
+    <div class="diagram">
+      <svg viewBox="0 0 360 240" width="360" height="240">
+        <line x1="45" y1="205" x2="330" y2="205" stroke="#333" stroke-width="2"/>
+        <line x1="45" y1="205" x2="45" y2="20" stroke="#333" stroke-width="2"/>
+        <text x="335" y="210" font-size="11" fill="#333" text-anchor="end">X (गेहूँ) →</text>
+        <text x="50" y="15" font-size="11" fill="#333">Y (कपड़ा) ↑</text>
+        <path d="M60,35 Q160,60 310,190" fill="none" stroke="#5e35b1" stroke-width="3"/>
+        <text x="150" y="70" fill="#5e35b1" font-size="12">PPC</text>
+        <circle cx="95" cy="52" r="3.5" fill="#d81b60"/>
+        <circle cx="150" cy="78" r="3.5" fill="#d81b60"/>
+        <circle cx="230" cy="130" r="3.5" fill="#d81b60"/>
+        <text x="60" y="185" font-size="10" fill="#666">अपूर्ण रोजगार (A)</text>
+        <circle cx="110" cy="150" r="4" fill="#2e7d32"/>
+        <text x="150" y="35" font-size="10" fill="#d81b60">अप्राप्य (B)</text>
+      </svg>
+      <div class="cap">चित्र: अवतल PPC, अवसर लागत एवं तीन स्थितियाँ</div>
+    </div>
+
+    <div class="box formula">
+      <b>अवसर लागत = जो छोड़ा गया / जो प्राप्त किया गया</b><br>
+      <b>MRT = ΔY / ΔX</b> — एक अतिरिक्त इकाई X प्राप्त करने के लिए त्यागी गई Y की मात्रा।
+    </div>
+
+    <h3>संख्यात्मक उदाहरण</h3>
+    <div class="table-wrap">
+    <table>
+      <tr><th>संयोजन</th><th>गेहूँ</th><th>कपड़ा</th><th>अवसर लागत</th></tr>
+      <tr><td>A</td><td>0</td><td>100</td><td>—</td></tr>
+      <tr><td>B</td><td>1</td><td>90</td><td>10</td></tr>
+      <tr><td>C</td><td>2</td><td>70</td><td>20</td></tr>
+      <tr><td>D</td><td>3</td><td>40</td><td>30</td></tr>
+      <tr><td>E</td><td>4</td><td>0</td><td>40</td></tr>
+    </table>
+    </div>
+
+    <div class="box answer">
+      <b>📝 परीक्षा में लिखने योग्य आदर्श उत्तर</b><br>
+      <b>भूमिका:</b> सीमित संसाधनों में चुनाव की समस्या को PPC चित्रित करता है।<br>
+      <b>मुख्य भाग:</b> परिभाषा → मान्यताएँ → विशेषताएँ (अवतल, ऋणात्मक ढाल) → चित्र → तालिका से अवसर लागत → वक्र के खिसकने के कारण।<br>
+      <b>निष्कर्ष:</b> PPC अर्थव्यवस्था की उत्पादन क्षमता, दक्षता एवं आर्थिक विकास को मापने का सरल उपकरण है।
+    </div>
+
+    <div class="kw"><span>PPF</span><span>Transformation Curve</span><span>अवतल</span><span>MRT</span><span>अवसर लागत</span><span>आर्थिक विकास</span></div>
+  </article>
+
+  <!-- ============ Q3 ============ -->
+  <article class="q-card" id="q3">
+    <h2><span class="qnum">3</span>माँग का नियम (Law of Demand)</h2>
+
+    <h3>परिभाषा</h3>
+    <p>अन्य बातें समान रहने पर (ceteris paribus), किसी वस्तु की कीमत बढ़ने पर उसकी माँगी गई मात्रा घटती है और कीमत घटने पर माँगी गई मात्रा बढ़ती है। कीमत और माँग में <b>विपरीत संबंध</b> होता है।</p>
+
+    <h3>मान्यताएँ</h3>
+    <ul>
+      <li>आय स्थिर रहे।</li>
+      <li>संबंधित वस्तुओं की कीमतें स्थिर।</li>
+      <li>रुचि, फैशन में परिवर्तन न हो।</li>
+      <li>जनसंख्या एवं आय वितरण स्थिर।</li>
+    </ul>
+
+    <h3>नियम के कारण</h3>
+    <ul>
+      <li><b>उपयोगिता ह्रास नियम</b></li>
+      <li><b>आय प्रभाव</b> — कीमत गिरने पर वास्तविक आय बढ़ती है।</li>
+      <li><b>प्रतिस्थापन प्रभाव</b> — सस्ती वस्तु महँगी का स्थान लेती है।</li>
+      <li>नए उपभोक्ताओं का प्रवेश।</li>
+    </ul>
+
+    <div class="diagram">
+      <svg viewBox="0 0 360 230" width="360" height="230">
+        <line x1="50" y1="200" x2="330" y2="200" stroke="#333" stroke-width="2"/>
+        <line x1="50" y1="200" x2="50" y2="20" stroke="#333" stroke-width="2"/>
+        <text x="335" y="215" font-size="11" text-anchor="end">मात्रा →</text>
+        <text x="55" y="15" font-size="11">कीमत ↑</text>
+        <line x1="70" y1="50" x2="300" y2="180" stroke="#5e35b1" stroke-width="3"/>
+        <text x="230" y="130" fill="#5e35b1" font-size="12">D</text>
+        <circle cx="150" cy="108" r="4" fill="#d81b60"/>
+        <text x="155" y="105" font-size="10" fill="#333">A</text>
+        <circle cx="230" cy="150" r="4" fill="#d81b60"/>
+        <text x="235" y="147" font-size="10" fill="#333">B</text>
+      </svg>
+      <div class="cap">चित्र: ऋणात्मक ढाल वाला माँग वक्र</div>
+    </div>
+
+    <h3>अपवाद</h3>
+    <ul>
+      <li><b>गिफेन वस्तुएँ</b> — कीमत घटने पर माँग घट सकती है।</li>
+      <li><b>वेब्लेन वस्तुएँ</b> — हीरे, महँगी कार।</li>
+      <li>अपेक्षित कीमत वृद्धि।</li>
+      <li>अज्ञानता, आदत, आवश्यकता।</li>
+    </ul>
+
+    <div class="box answer">
+      <b>📝 परीक्षा में लिखने योग्य आदर्श उत्तर</b><br>
+      <b>भूमिका:</b> उपभोक्ता व्यवहार का सबसे मूलभूत नियम माँग का नियम है।<br>
+      <b>मुख्य भाग:</b> परिभाषा → मान्यताएँ → कारण → चित्र → अपवाद।<br>
+      <b>निष्कर्ष:</b> नियम सामान्यतः सभी वस्तुओं पर लागू, परंतु गिफेन व वेब्लेन अपवाद हैं।
+    </div>
+
+    <div class="kw"><span>ceteris paribus</span><span>माँग वक्र</span><span>गिफेन वस्तु</span><span>वेब्लेन वस्तु</span><span>आय प्रभाव</span></div>
+  </article>
+
+  <!-- ============ Q4 ============ -->
+  <article class="q-card" id="q4">
+    <h2><span class="qnum">4</span>माँग की कीमत लोच</h2>
+
+    <h3>परिभाषा</h3>
+    <p>कीमत में प्रतिशत परिवर्तन के कारण माँगी गई मात्रा में प्रतिशत परिवर्तन की माप।</p>
+
+    <div class="box formula">
+      <b>E<sub>d</sub> = (ΔQ / Q) ÷ (ΔP / P) = (ΔQ/ΔP) × (P/Q)</b><br>
+      ΔQ = मात्रा परिवर्तन · Q = प्रारंभिक मात्रा · ΔP = कीमत परिवर्तन · P = प्रारंभिक कीमत
+    </div>
+
+    <h3>प्रकार</h3>
+    <div class="table-wrap">
+    <table>
+      <tr><th>प्रकार</th><th>मान</th><th>उदाहरण</th></tr>
+      <tr><td>पूर्णतः बेलोचदार</td><td>E = 0</td><td>नमक, जीवनरक्षक दवा</td></tr>
+      <tr><td>अल्प बेलोचदार</td><td>0 &lt; E &lt; 1</td><td>आवश्यक वस्तुएँ</td></tr>
+      <tr><td>इकाई लोचदार</td><td>E = 1</td><td>सामान्य वस्तु</td></tr>
+      <tr><td>अधिक बेलोचदार</td><td>E &gt; 1</td><td>विलासिता वस्तुएँ</td></tr>
+      <tr><td>पूर्णतः लोचदार</td><td>E = ∞</td><td>पूर्ण प्रतियोगिता</td></tr>
+    </table>
+    </div>
+
+    <div class="diagram">
+      <svg viewBox="0 0 700 170" width="700" height="170">
+        <g><line x1="15" y1="130" x2="120" y2="130" stroke="#333"/><line x1="15" y1="130" x2="15" y2="20" stroke="#333"/>
+         <line x1="15" y1="75" x2="120" y2="75" stroke="#d81b60" stroke-width="2.5"/><text x="30" y="18" font-size="10">E=0</text></g>
+        <g transform="translate(135,0)"><line x1="15" y1="130" x2="120" y2="130" stroke="#333"/><line x1="15" y1="130" x2="15" y2="20" stroke="#333"/>
+         <line x1="20" y1="30" x2="110" y2="120" stroke="#5e35b1" stroke-width="2.5"/><text x="30" y="18" font-size="10">E&lt;1</text></g>
+        <g transform="translate(270,0)"><line x1="15" y1="130" x2="120" y2="130" stroke="#333"/><line x1="15" y1="130" x2="15" y2="20" stroke="#333"/>
+         <line x1="20" y1="30" x2="110" y2="120" stroke="#5e35b1" stroke-width="2.5"/><text x="30" y="18" font-size="10">E=1</text></g>
+        <g transform="translate(405,0)"><line x1="15" y1="130" x2="120" y2="130" stroke="#333"/><line x1="15" y1="130" x2="15" y2="20" stroke="#333"/>
+         <line x1="25" y1="120" x2="110" y2="30" stroke="#5e35b1" stroke-width="2.5"/><text x="30" y="18" font-size="10">E&gt;1</text></g>
+        <g transform="translate(540,0)"><line x1="15" y1="130" x2="120" y2="130" stroke="#333"/><line x1="15" y1="130" x2="15" y2="20" stroke="#333"/>
+         <line x1="15" y1="75" x2="120" y2="75" stroke="#d81b60" stroke-width="2.5" stroke-dasharray="4"/><text x="30" y="18" font-size="10">E=∞</text></g>
+      </svg>
+      <div class="cap">चित्र: माँग की लोच के पाँच प्रकार</div>
+    </div>
+
+    <h3>मापन विधियाँ</h3>
+    <ol>
+      <li><b>प्रतिशत विधि</b></li>
+      <li><b>चाप विधि:</b> E = (ΔQ / ((Q₁+Q₂)/2)) ÷ (ΔP / ((P₁+P₂)/2))</li>
+      <li><b>कुल व्यय विधि</b></li>
+      <li><b>बिंदु विधि:</b> E = निचला भाग / ऊपरी भाग</li>
+    </ol>
+
+    <h3>हल किया हुआ संख्यात्मक प्रश्न</h3>
+    <div class="box example">
+      <b>प्रश्न:</b> कीमत ₹10 से ₹12, माँग 100 से 80। E<sub>d</sub>?<br>
+      <b>चरण 1:</b> P₁=10, P₂=12, Q₁=100, Q₂=80, ΔP=2, ΔQ=−20<br>
+      <b>चरण 2:</b> E = (ΔQ/ΔP) × (P/Q)<br>
+      <b>चरण 3:</b> E = (−20/2) × (10/100) = −10 × 0.1 = −1<br>
+      <b>चरण 4:</b> निरपेक्ष मान लेंगे<br>
+      <b>चरण 5 — अंतिम उत्तर:</b> <b>|E| = 1 (इकाई लोचदार)</b>
+    </div>
+
+    <div class="box answer">
+      <b>📝 परीक्षा में लिखने योग्य आदर्श उत्तर</b><br>
+      <b>भूमिका:</b> माँग का नियम दिशा बताता है; परिमाण मापने के लिए लोच आवश्यक है।<br>
+      <b>मुख्य भाग:</b> परिभाषा → सूत्र → 5 प्रकार → मापन विधियाँ → संख्यात्मक उदाहरण।<br>
+      <b>निष्कर्ष:</b> लोच कर नीति एवं मूल्य निर्धारण का आधार है।
+    </div>
+
+    <div class="kw"><span>Ed</span><span>बेलोचदार</span><span>लोचदार</span><span>चाप विधि</span><span>कुल व्यय विधि</span></div>
+  </article>
+
+  <!-- ============ Q5 ============ -->
+  <article class="q-card" id="q5">
+    <h2><span class="qnum">5</span>सीमांत उपयोगिता ह्रास का नियम</h2>
+
+    <h3>परिभाषा</h3>
+    <p>जैसे-जैसे उपभोक्ता किसी वस्तु की अधिक इकाइयाँ उपभोग करता है, प्रत्येक अतिरिक्त इकाई से प्राप्त <b>सीमांत उपयोगिता (MU)</b> घटती जाती है। इसे <b>गोसेन का पहला नियम</b> कहते हैं।</p>
+
+    <div class="box formula">
+      <b>TU<sub>n</sub> = TU<sub>n−1</sub> + MU<sub>n</sub></b> &nbsp;|&nbsp; <b>MU<sub>n</sub> = TU<sub>n</sub> − TU<sub>n−1</sub></b>
+    </div>
+
+    <h3>मान्यताएँ</h3>
+    <ul>
+      <li>उपयोगिता मापी जा सकती है (Cardinal Utility)।</li>
+      <li>उपभोक्ता तर्कसंगत।</li>
+      <li>उपभोग निरंतर।</li>
+      <li>रुचि व आय में परिवर्तन नहीं।</li>
+    </ul>
+
+    <h3>तालिका</h3>
+    <div class="table-wrap">
+    <table>
+      <tr><th>इकाई</th><th>TU</th><th>MU</th><th>अवस्था</th></tr>
+      <tr><td>1</td><td>20</td><td>20</td><td>MU घट रही</td></tr>
+      <tr><td>2</td><td>35</td><td>15</td><td>MU घट रही</td></tr>
+      <tr><td>3</td><td>45</td><td>10</td><td>MU घट रही</td></tr>
+      <tr><td>4</td><td>50</td><td>5</td><td>MU घट रही</td></tr>
+      <tr><td>5</td><td>50</td><td>0</td><td>संतृप्ति (TU अधिकतम)</td></tr>
+      <tr><td>6</td><td>45</td><td>−5</td><td>MU ऋणात्मक</td></tr>
+    </table>
+    </div>
+
+    <div class="diagram">
+      <svg viewBox="0 0 360 220" width="360" height="220">
+        <line x1="45" y1="180" x2="330" y2="180" stroke="#333"/><line x1="45" y1="180" x2="45" y2="20" stroke="#333"/>
+        <text x="335" y="195" font-size="11" text-anchor="end">इकाइयाँ →</text>
+        <text x="50" y="15" font-size="11">TU/MU ↑</text>
+        <polyline points="60,150 110,95 160,60 210,40 260,40 310,60" fill="none" stroke="#5e35b1" stroke-width="3"/>
+        <text x="300" y="50" font-size="11" fill="#5e35b1">TU</text>
+        <polyline points="60,80 110,110 160,130 210,150 260,170 310,185" fill="none" stroke="#d81b60" stroke-width="3"/>
+        <text x="300" y="180" font-size="11" fill="#d81b60">MU</text>
+        <line x1="45" y1="170" x2="330" y2="170" stroke="#999" stroke-dasharray="4"/>
+      </svg>
+      <div class="cap">चित्र: TU अधिकतम जहाँ MU = 0</div>
+    </div>
+
+    <div class="box answer">
+      <b>📝 परीक्षा में लिखने योग्य आदर्श उत्तर</b><br>
+      <b>भूमिका:</b> MU ह्रास का नियम माँग के नियम की व्याख्या का आधार है।<br>
+      <b>मुख्य भाग:</b> परिभाषा → मान्यताएँ → तालिका → चित्र → महत्व एवं सीमाएँ।<br>
+      <b>निष्कर्ष:</b> MU = 0 पर TU अधिकतम; इसके बाद MU ऋणात्मक।
+    </div>
+
+    <div class="kw"><span>MU</span><span>TU</span><span>संतृप्ति बिंदु</span><span>गोसेन का नियम</span></div>
+  </article>
+
+  <!-- ============ Q6 ============ -->
+  <article class="q-card" id="q6">
+    <h2><span class="qnum">6</span>उदासीनता वक्र (Indifference Curve)</h2>
+
+    <h3>परिभाषा</h3>
+    <p>IC वह वक्र है जो दो वस्तुओं के उन सभी संयोजनों को दिखाता है जिनसे उपभोक्ता को <b>समान संतुष्टि</b> प्राप्त होती है। इसका विकास हिक्स और एलन ने किया (Ordinal Utility)।</p>
+
+    <h3>विशेषताएँ</h3>
+    <ul>
+      <li>मूल बिंदु की ओर <b>उत्तल (Convex)</b>।</li>
+      <li><b>ऋणात्मक ढाल</b>।</li>
+      <li>दो IC कभी नहीं काटते।</li>
+      <li>ऊँचा IC = अधिक संतुष्टि।</li>
+      <li>मूल बिंदु को स्पर्श नहीं करता।</li>
+    </ul>
+
+    <div class="diagram">
+      <svg viewBox="0 0 360 240" width="360" height="240">
+        <line x1="45" y1="205" x2="330" y2="205" stroke="#333"/><line x1="45" y1="205" x2="45" y2="20" stroke="#333"/>
+        <text x="335" y="220" font-size="11" text-anchor="end">वस्तु X →</text><text x="50" y="15" font-size="11">वस्तु Y ↑</text>
+        <path d="M70,60 Q130,180 300,195" fill="none" stroke="#1a237e" stroke-width="2.5"/>
+        <path d="M80,40 Q160,140 315,170" fill="none" stroke="#5e35b1" stroke-width="2.5"/>
+        <path d="M95,25 Q200,100 325,140" fill="none" stroke="#d81b60" stroke-width="2.5"/>
+        <text x="120" y="180" font-size="10" fill="#1a237e">IC₁</text>
+        <text x="180" y="120" font-size="10" fill="#5e35b1">IC₂</text>
+        <text x="240" y="80" font-size="10" fill="#d81b60">IC₃</text>
+      </svg>
+      <div class="cap">चित्र: उदासीनता मानचित्र (IC₃ &gt; IC₂ &gt; IC₁)</div>
+    </div>
+
+    <div class="box formula">
+      <b>MRS<sub>XY</sub> = ΔY / ΔX = MU<sub>X</sub> / MU<sub>Y</sub></b><br>
+      IC उत्तल होने के कारण MRS घटती है (Diminishing MRS)।
+    </div>
+
+    <div class="box answer">
+      <b>📝 परीक्षा में लिखने योग्य आदर्श उत्तर</b><br>
+      <b>भूमिका:</b> हिक्स-एलन ने Ordinal Utility पर आधारित IC विश्लेषण प्रस्तुत किया।<br>
+      <b>मुख्य भाग:</b> परिभाषा → विशेषताएँ → चित्र → MRS।<br>
+      <b>निष्कर्ष:</b> यह उपभोक्ता संतुलन का वैज्ञानिक आधार है।
+    </div>
+
+    <div class="kw"><span>Ordinal Utility</span><span>MRS</span><span>उत्तल</span><span>Indifference Map</span><span>हिक्स-एलन</span></div>
+  </article>
+
+  <!-- ============ Q7 ============ -->
+  <article class="q-card" id="q7">
+    <h2><span class="qnum">7</span>बजट रेखा और उपभोक्ता संतुलन</h2>
+
+    <h3>बजट रेखा</h3>
+    <p>दो वस्तुओं के उन सभी संयोजनों को दिखाती है जिन्हें उपभोक्ता अपनी आय और कीमतों पर खरीद सकता है।</p>
+
+    <div class="box formula">
+      <b>P<sub>X</sub>·X + P<sub>Y</sub>·Y = M</b><br>
+      ढाल = −P<sub>X</sub>/P<sub>Y</sub> · X-अंतःखंड = M/P<sub>X</sub> · Y-अंतःखंड = M/P<sub>Y</sub>
+    </div>
+
+    <h3>उपभोक्ता संतुलन</h3>
+    <p>वह बिंदु जहाँ बजट रेखा उच्चतम IC को <b>स्पर्श</b> करती है।</p>
+
+    <div class="box formula">
+      <b>MRS<sub>XY</sub> = P<sub>X</sub>/P<sub>Y</sub></b> या <b>MU<sub>X</sub>/P<sub>X</sub> = MU<sub>Y</sub>/P<sub>Y</sub></b>
+    </div>
+
+    <div class="diagram">
+      <svg viewBox="0 0 360 240" width="360" height="240">
+        <line x1="45" y1="205" x2="330" y2="205" stroke="#333"/><line x1="45" y1="205" x2="45" y2="20" stroke="#333"/>
+        <text x="335" y="220" font-size="11" text-anchor="end">वस्तु X →</text><text x="50" y="15" font-size="11">वस्तु Y ↑</text>
+        <line x1="60" y1="45" x2="300" y2="195" stroke="#d81b60" stroke-width="2.5"/>
+        <text x="270" y="80" font-size="10" fill="#d81b60">बजट रेखा</text>
+        <path d="M70,180 Q140,80 290,60" fill="none" stroke="#5e35b1" stroke-width="2.5"/>
+        <text x="240" y="55" font-size="10" fill="#5e35b1">IC</text>
+        <circle cx="152" cy="123" r="5" fill="#2e7d32"/>
+        <text x="160" y="120" font-size="10" fill="#2e7d32">E (संतुलन)</text>
+      </svg>
+      <div class="cap">चित्र: उपभोक्ता संतुलन बिंदु E पर</div>
+    </div>
+
+    <div class="box example">
+      <b>उदाहरण:</b> आय M = ₹100, P<sub>X</sub> = ₹10, P<sub>Y</sub> = ₹20।<br>
+      X-अंतःखंड = 10, Y-अंतःखंड = 5।<br>
+      बजट रेखा: 10X + 20Y = 100। यदि X = 4, तो Y = 3।
+    </div>
+
+    <div class="box answer">
+      <b>📝 परीक्षा में लिखने योग्य आदर्श उत्तर</b><br>
+      <b>भूमिका:</b> सीमित आय से अधिकतम संतुष्टि — यही उपभोक्ता संतुलन है।<br>
+      <b>मुख्य भाग:</b> बजट रेखा → संतुलन शर्त → चित्र → संख्यात्मक उदाहरण।<br>
+      <b>निष्कर्ष:</b> संतुलन बिंदु पर प्रत्येक वस्तु पर अंतिम रुपये से समान MU प्राप्त होती है।
+    </div>
+
+    <div class="kw"><span>Budget Line</span><span>MRS = Px/Py</span><span>MUx/Px = MUy/Py</span><span>स्पर्श बिंदु</span></div>
+  </article>
+
+  <!-- ============ Q8 ============ -->
+  <article class="q-card" id="q8">
+    <h2><span class="qnum">8</span>परिवर्तनशील अनुपात का नियम</h2>
+
+    <h3>परिभाषा</h3>
+    <p>अल्पकाल में जब एक साधन की इकाइयाँ बढ़ाई जाती हैं जबकि अन्य साधन स्थिर रहते हैं, तो उत्पादन पहले बढ़ती दर से, फिर घटती दर से बढ़ता है और अंततः घटने लगता है।</p>
+
+    <div class="box formula">
+      <b>AP = TP / L</b> · <b>MP = ΔTP / ΔL</b><br>
+      MP &gt; AP ⇒ AP बढ़ती · MP = AP ⇒ AP अधिकतम · MP = 0 ⇒ TP अधिकतम
+    </div>
+
+    <h3>तीन अवस्थाएँ</h3>
+    <div class="table-wrap">
+    <table>
+      <tr><th>अवस्था</th><th>TP</th><th>MP</th><th>AP</th></tr>
+      <tr><td>I — वर्धमान</td><td>बढ़ती दर से</td><td>बढ़ती</td><td>बढ़ती</td></tr>
+      <tr><td>II — ह्रासमान</td><td>घटती दर से</td><td>घटती (+)</td><td>घटती</td></tr>
+      <tr><td>III — ऋणात्मक</td><td>घटती</td><td>ऋणात्मक</td><td>घटती</td></tr>
+    </table>
+    </div>
+
+    <h3>संख्यात्मक तालिका</h3>
+    <div class="table-wrap">
+    <table>
+      <tr><th>L</th><th>TP</th><th>MP</th><th>AP</th><th>अवस्था</th></tr>
+      <tr><td>1</td><td>10</td><td>10</td><td>10</td><td>I</td></tr>
+      <tr><td>2</td><td>24</td><td>14</td><td>12</td><td>I</td></tr>
+      <tr><td>3</td><td>42</td><td>18</td><td>14</td><td>I</td></tr>
+      <tr><td>4</td><td>56</td><td>14</td><td>14</td><td>II (AP अधिकतम)</td></tr>
+      <tr><td>5</td><td>66</td><td>10</td><td>13.2</td><td>II</td></tr>
+      <tr><td>6</td><td>72</td><td>6</td><td>12</td><td>II</td></tr>
+      <tr><td>7</td><td>74</td><td>2</td><td>10.6</td><td>II</td></tr>
+      <tr><td>8</td><td>74</td><td>0</td><td>9.25</td><td>TP अधिकतम</td></tr>
+      <tr><td>9</td><td>70</td><td>−4</td><td>7.8</td><td>III</td></tr>
+    </table>
+    </div>
+
+    <div class="diagram">
+      <svg viewBox="0 0 380 240" width="380" height="240">
+        <line x1="45" y1="205" x2="350" y2="205" stroke="#333"/><line x1="45" y1="205" x2="45" y2="20" stroke="#333"/>
+        <text x="355" y="220" font-size="11" text-anchor="end">श्रम →</text><text x="50" y="15" font-size="11">उत्पादन ↑</text>
+        <path d="M60,190 C110,70 170,50 220,55 C280,65 320,120 345,190" fill="none" stroke="#5e35b1" stroke-width="3"/>
+        <text x="250" y="50" font-size="10" fill="#5e35b1">TP</text>
+        <path d="M60,150 C110,80 170,80 220,100 C270,125 320,175 345,200" fill="none" stroke="#d81b60" stroke-width="2.5"/>
+        <text x="255" y="115" font-size="10" fill="#d81b60">AP</text>
+        <path d="M60,170 C100,70 150,90 200,120 C250,150 300,190 345,205" fill="none" stroke="#2e7d32" stroke-width="2.5"/>
+        <text x="255" y="160" font-size="10" fill="#2e7d32">MP</text>
+      </svg>
+      <div class="cap">चित्र: परिवर्तनशील अनुपात की तीन अवस्थाएँ</div>
+    </div>
+
+    <div class="box answer">
+      <b>📝 परीक्षा में लिखने योग्य आदर्श उत्तर</b><br>
+      <b>भूमिका:</b> साधनों के अनुपात परिवर्तन का उत्पादन पर प्रभाव।<br>
+      <b>मुख्य भाग:</b> परिभाषा → तीन अवस्थाएँ → MP/AP/TP संबंध → कारण।<br>
+      <b>निष्कर्ष:</b> AP अधिकतम बिंदु = परिवर्तनशील साधन का कुशलतम स्तर।
+    </div>
+
+    <div class="kw"><span>TP</span><span>AP</span><span>MP</span><span>वर्धमान प्रतिफल</span><span>ह्रासमान प्रतिफल</span><span>अविभाज्यता</span></div>
+  </article>
+
+  <!-- ============ Q9 ============ -->
+  <article class="q-card" id="q9">
+    <h2><span class="qnum">9</span>अल्पकालीन लागत वक्र</h2>
+
+    <h3>परिभाषाएँ</h3>
+    <ul>
+      <li><b>TFC:</b> उत्पादन शून्य पर भी लगने वाली लागत।</li>
+      <li><b>TVC:</b> उत्पादन के साथ बदलने वाली लागत।</li>
+      <li><b>TC = TFC + TVC</b></li>
+      <li><b>AFC = TFC/Q</b> · <b>AVC = TVC/Q</b> · <b>AC = TC/Q</b></li>
+      <li><b>MC = ΔTC/ΔQ</b></li>
+    </ul>
+
+    <h3>तालिका</h3>
+    <div class="table-wrap">
+    <table>
+      <tr><th>Q</th><th>TFC</th><th>TVC</th><th>TC</th><th>AFC</th><th>AVC</th><th>AC</th><th>MC</th></tr>
+      <tr><td>0</td><td>100</td><td>0</td><td>100</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+      <tr><td>1</td><td>100</td><td>50</td><td>150</td><td>100</td><td>50</td><td>150</td><td>50</td></tr>
+      <tr><td>2</td><td>100</td><td>90</td><td>190</td><td>50</td><td>45</td><td>95</td><td>40</td></tr>
+      <tr><td>3</td><td>100</td><td>120</td><td>220</td><td>33.3</td><td>40</td><td>73.3</td><td>30</td></tr>
+      <tr><td>4</td><td>100</td><td>160</td><td>260</td><td>25</td><td>40</td><td>65</td><td>40</td></tr>
+      <tr><td>5</td><td>100</td><td>220</td><td>320</td><td>20</td><td>44</td><td>64</td><td>60</td></tr>
+    </table>
+    </div>
+
+    <div class="diagram">
+      <svg viewBox="0 0 380 240" width="380" height="240">
+        <line x1="45" y1="205" x2="350" y2="205" stroke="#333"/><line x1="45" y1="205" x2="45" y2="20" stroke="#333"/>
+        <text x="355" y="220" font-size="11" text-anchor="end">उत्पादन →</text><text x="50" y="15" font-size="11">लागत ↑</text>
+        <path d="M60,40 C130,150 220,190 330,198" fill="none" stroke="#1a237e" stroke-width="2.5"/>
+        <text x="300" y="185" font-size="10" fill="#1a237e">AFC</text>
+        <path d="M60,160 C130,120 220,120 330,170" fill="none" stroke="#d81b60" stroke-width="2.5"/>
+        <text x="300" y="160" font-size="10" fill="#d81b60">AVC</text>
+        <path d="M60,120 C140,80 220,90 330,160" fill="none" stroke="#2e7d32" stroke-width="2.5"/>
+        <text x="300" y="105" font-size="10" fill="#2e7d32">AC</text>
+        <path d="M60,180 C120,110 160,95 220,110 C270,130 310,170 340,195" fill="none" stroke="#f9a825" stroke-width="2.5"/>
+        <text x="230" y="130" font-size="10" fill="#b71c1c">MC</text>
+      </svg>
+      <div class="cap">चित्र: AFC, AVC, AC और MC वक्र — MC, AC को न्यूनतम बिंदु पर काटती है</div>
+    </div>
+
+    <div class="box answer">
+      <b>📝 परीक्षा में लिखने योग्य आदर्श उत्तर</b><br>
+      <b>भूमिका:</b> उत्पादन निर्णय एवं कीमत निर्धारण में लागत का ज्ञान आवश्यक।<br>
+      <b>मुख्य भाग:</b> परिभाषाएँ → सूत्र → तालिका → चित्र → AC व MC संबंध।<br>
+      <b>निष्कर्ष:</b> U-आकार के लागत वक्र परिवर्तनशील अनुपात के नियम का परिणाम हैं।
+    </div>
+
+    <div class="kw"><span>TFC</span><span>TVC</span><span>TC</span><span>AFC</span><span>AVC</span><span>AC</span><span>MC</span></div>
+  </article>
+
+  <!-- ============ Q10 ============ -->
+  <article class="q-card" id="q10">
+    <h2><span class="qnum">10</span>पूर्ण प्रतियोगिता में फर्म का संतुलन</h2>
+
+    <h3>विशेषताएँ</h3>
+    <ul>
+      <li>अत्यधिक क्रेता-विक्रेता, फर्म <b>Price Taker</b>।</li>
+      <li>समरूप वस्तु, पूर्ण जानकारी, मुक्त प्रवेश-निकास।</li>
+      <li><b>AR = MR = P</b> (क्षैतिज माँग वक्र)।</li>
+    </ul>
+
+    <div class="box formula">
+      <b>शर्त 1: MR = MC</b><br>
+      <b>शर्त 2: MC बढ़ती हुई हो (MC, MR को नीचे से काटे)</b><br>
+      PC में MR = AR = P, अतः <b>P = MC</b>।
+    </div>
+
+    <div class="diagram">
+      <svg viewBox="0 0 360 240" width="360" height="240">
+        <line x1="45" y1="205" x2="330" y2="205" stroke="#333"/><line x1="45" y1="205" x2="45" y2="20" stroke="#333"/>
+        <text x="335" y="220" font-size="11" text-anchor="end">उत्पादन →</text><text x="50" y="15" font-size="11">कीमत/लागत ↑</text>
+        <line x1="55" y1="90" x2="320" y2="90" stroke="#d81b60" stroke-width="2.5"/>
+        <text x="255" y="82" font-size="10" fill="#d81b60">AR = MR = P</text>
+        <path d="M60,180 C120,90 170,80 220,110 C270,150 310,190 330,205" fill="none" stroke="#2e7d32" stroke-width="2.5"/>
+        <text x="300" y="175" font-size="10" fill="#2e7d32">MC</text>
+        <path d="M60,120 C140,90 220,100 320,160" fill="none" stroke="#1a237e" stroke-width="2.5"/>
+        <text x="300" y="105" font-size="10" fill="#1a237e">AC</text>
+        <circle cx="150" cy="90" r="5" fill="#b71c1c"/>
+        <text x="105" y="76" font-size="10" fill="#b71c1c">E (MR = MC)</text>
+      </svg>
+      <div class="cap">चित्र: पूर्ण प्रतियोगिता में फर्म का संतुलन बिंदु E</div>
+    </div>
+
+    <h3>अल्पकालीन स्थितियाँ</h3>
+    <div class="table-wrap">
+    <table>
+      <tr><th>स्थिति</th><th>शर्त</th></tr>
+      <tr><td>असाधारण लाभ</td><td>P &gt; AC</td></tr>
+      <tr><td>सामान्य लाभ</td><td>P = AC</td></tr>
+      <tr><td>हानि (उत्पादन जारी)</td><td>AVC &lt; P &lt; AC</td></tr>
+      <tr><td>बंदी बिंदु</td><td>P = AVC</td></tr>
+    </table>
+    </div>
+
+    <div class="box answer">
+      <b>📝 परीक्षा में लिखने योग्य आदर्श उत्तर</b><br>
+      <b>भूमिका:</b> PC आदर्श बाजार संरचना है।<br>
+      <b>मुख्य भाग:</b> विशेषताएँ → संतुलन शर्तें → चित्र → पाँच स्थितियाँ → दीर्घकाल।<br>
+      <b>निष्कर्ष:</b> दीर्घकाल में केवल सामान्य लाभ।
+    </div>
+
+    <div class="kw"><span>Price Taker</span><span>AR = MR = P</span><span>MR = MC</span><span>Shutdown Point</span></div>
+  </article>
+
+  <!-- ============ Q11 ============ -->
+  <article class="q-card" id="q11">
+    <h2><span class="qnum">11</span>एकाधिकार में कीमत और उत्पादन निर्धारण</h2>
+
+    <h3>परिभाषा</h3>
+    <p>एक ही विक्रेता, कोई निकट प्रतिस्थापन नहीं, प्रवेश पर रोक। फर्म ही उद्योग है और <b>Price Maker</b> है। माँग वक्र नीचे ढालू, इसलिए <b>MR &lt; AR</b>।</p>
+
+    <div class="box formula">
+      <b>संतुलन: MR = MC</b><br>
+      Q<sub>m</sub> → AR वक्र पर P<sub>m</sub> → <b>P<sub>m</sub> &gt; MC</b>
+    </div>
+
+    <div class="diagram">
+      <svg viewBox="0 0 380 240" width="380" height="240">
+        <line x1="45" y1="205" x2="350" y2="205" stroke="#333"/><line x1="45" y1="205" x2="45" y2="20" stroke="#333"/>
+        <text x="355" y="220" font-size="11" text-anchor="end">उत्पादन →</text><text x="50" y="15" font-size="11">कीमत/लागत ↑</text>
+        <line x1="60" y1="45" x2="330" y2="195" stroke="#1a237e" stroke-width="2.5"/>
+        <text x="290" y="65" font-size="10" fill="#1a237e">AR (माँग)</text>
+        <line x1="60" y1="45" x2="230" y2="205" stroke="#5e35b1" stroke-width="2.5"/>
+        <text x="170" y="170" font-size="10" fill="#5e35b1">MR</text>
+        <path d="M70,190 C140,120 180,105 240,120 C290,140 320,175 345,200" fill="none" stroke="#2e7d32" stroke-width="2.5"/>
+        <text x="290" y="160" font-size="10" fill="#2e7d32">MC</text>
+        <circle cx="205" cy="138" r="5" fill="#d81b60"/>
+        <line x1="205" y1="138" x2="205" y2="205" stroke="#999" stroke-dasharray="3"/>
+        <line x1="205" y1="138" x2="45" y2="138" stroke="#999" stroke-dasharray="3"/>
+        <text x="210" y="218" font-size="10" fill="#333">Qm</text>
+        <text x="25" y="142" font-size="10" fill="#333">Pm</text>
+        <text x="105" y="100" font-size="10" fill="#d81b60">E (MR=MC)</text>
+      </svg>
+      <div class="cap">चित्र: एकाधिकार संतुलन — MR=MC पर Q<sub>m</sub>, AR पर P<sub>m</sub></div>
+    </div>
+
+    <h3>मूल्य विभेदन</h3>
+    <p>एक ही वस्तु की भिन्न उपभोक्ताओं से भिन्न कीमत। शर्तें: बाजार पृथक्करण, लोच में अंतर, पुनर्विक्रय असंभव।</p>
+
+    <div class="box answer">
+      <b>📝 परीक्षा में लिखने योग्य आदर्श उत्तर</b><br>
+      <b>भूमिका:</b> एकाधिकार में एक ही विक्रेता पूरे बाजार पर नियंत्रण रखता है।<br>
+      <b>मुख्य भाग:</b> विशेषताएँ → AR &gt; MR → संतुलन → चित्र → मूल्य विभेदन → हानियाँ।<br>
+      <b>निष्कर्ष:</b> P &gt; MC — उपभोक्ता शोषण एवं दक्षता ह्रास।
+    </div>
+
+    <div class="kw"><span>Price Maker</span><span>MR &lt; AR</span><span>P &gt; MC</span><span>Price Discrimination</span></div>
+  </article>
+
+  <!-- ============ Q12 ============ -->
+  <article class="q-card" id="q12">
+    <h2><span class="qnum">12</span>पूर्ण प्रतियोगिता और एकाधिकार के बीच अंतर</h2>
+
+    <div class="table-wrap">
+    <table>
+      <tr><th>आधार</th><th>पूर्ण प्रतियोगिता</th><th>एकाधिकार</th></tr>
+      <tr><td>विक्रेता</td><td>अत्यधिक</td><td>एक</td></tr>
+      <tr><td>वस्तु</td><td>समरूप</td><td>अद्वितीय</td></tr>
+      <tr><td>कीमत</td><td>Price Taker</td><td>Price Maker</td></tr>
+      <tr><td>माँग वक्र</td><td>क्षैतिज</td><td>नीचे ढालू</td></tr>
+      <tr><td>AR व MR</td><td>AR = MR = P</td><td>AR &gt; MR</td></tr>
+      <tr><td>संतुलन</td><td>P = MC</td><td>MR = MC, P &gt; MC</td></tr>
+      <tr><td>प्रवेश</td><td>स्वतंत्र</td><td>रोक</td></tr>
+      <tr><td>दीर्घकालीन लाभ</td><td>सामान्य</td><td>असाधारण संभव</td></tr>
+      <tr><td>दक्षता</td><td>उच्च</td><td>कम (Deadweight Loss)</td></tr>
+    </table>
+    </div>
+
+    <div class="box answer">
+      <b>📝 परीक्षा में लिखने योग्य आदर्श उत्तर</b><br>
+      <b>भूमिका:</b> दोनों बाजार संरचनाओं की दो विपरीत चरम सीमाएँ हैं।<br>
+      <b>मुख्य भाग:</b> तालिका → प्रत्येक के संतुलन चित्र → कल्याण पर प्रभाव।<br>
+      <b>निष्कर्ष:</b> PC में दक्षता, Monopoly में शोषण; अतः सरकारी नियंत्रण आवश्यक।
+    </div>
+
+    <div class="kw"><span>Price Taker vs Price Maker</span><span>Deadweight Loss</span><span>उपभोक्ता संप्रभुता</span></div>
+  </article>
+
+  <!-- ============ Q13 ============ -->
+  <article class="q-card" id="q13">
+    <h2><span class="qnum">13</span>एकाधिकारात्मक प्रतियोगिता</h2>
+
+    <h3>परिभाषा</h3>
+    <p>वह बाजार संरचना जिसमें अनेक विक्रेता, निकट प्रतिस्थापन, परंतु <b>उत्पाद विभेदीकरण</b> के कारण प्रत्येक फर्म की कुछ एकाधिकार शक्ति होती है। प्रस्ताव: <b>प्रो. चैम्बरलिन (1933)</b>।</p>
+
+    <h3>विस्तृत व्याख्या</h3>
+    <p>यह पूर्ण प्रतियोगिता और एकाधिकार का मिश्रण है। वास्तविक बाजार में सर्वाधिक पाई जाती है — साबुन, टूथपेस्ट, कॉस्मेटिक, रेस्टोरेंट। उत्पाद विभेदीकरण <b>वास्तविक</b> (गुणवत्ता, डिज़ाइन) या <b>काल्पनिक</b> (ब्रांड, विज्ञापन) हो सकता है।</p>
+
+    <h3>विशेषताएँ</h3>
+    <ul>
+      <li>बड़ी संख्या में विक्रेता एवं क्रेता।</li>
+      <li>उत्पाद विभेदीकरण (सर्वप्रमुख)।</li>
+      <li>मुक्त प्रवेश-निकास।</li>
+      <li>माँग वक्र नीचे ढालू, पर अत्यधिक लोचदार।</li>
+      <li>विज्ञापन एवं विक्रय लागत।</li>
+      <li>गैर-मूल्य प्रतिस्पर्धा।</li>
+    </ul>
+
+    <h3>दीर्घकालीन संतुलन</h3>
+    <div class="box formula">
+      <b>MR = MC</b> तथा <b>AR = AC</b> (सामान्य लाभ)<br>
+      परंतु AC न्यूनतम नहीं → <b>Excess Capacity</b>
+    </div>
+
+    <div class="diagram">
+      <svg viewBox="0 0 380 250" width="380" height="250">
+        <line x1="45" y1="215" x2="350" y2="215" stroke="#333"/><line x1="45" y1="215" x2="45" y2="20" stroke="#333"/>
+        <text x="355" y="230" font-size="11" text-anchor="end">उत्पादन →</text><text x="50" y="15" font-size="11">कीमत/लागत ↑</text>
+        <line x1="60" y1="45" x2="300" y2="185" stroke="#1a237e" stroke-width="2.5"/>
+        <text x="270" y="70" font-size="10" fill="#1a237e">AR</text>
+        <line x1="60" y1="45" x2="220" y2="205" stroke="#5e35b1" stroke-width="2.5"/>
+        <text x="150" y="180" font-size="10" fill="#5e35b1">MR</text>
+        <path d="M70,195 C140,110 200,95 260,115 C305,132 330,175 348,205" fill="none" stroke="#2e7d32" stroke-width="2.5"/>
+        <text x="290" y="150" font-size="10" fill="#2e7d32">MC</text>
+        <path d="M80,120 C150,80 230,85 320,140" fill="none" stroke="#d81b60" stroke-width="2.5"/>
+        <text x="290" y="105" font-size="10" fill="#d81b60">AC</text>
+        <circle cx="160" cy="112" r="5" fill="#b71c1c"/>
+        <line x1="160" y1="112" x2="160" y2="215" stroke="#999" stroke-dasharray="3"/>
+        <line x1="160" y1="112" x2="45" y2="112" stroke="#999" stroke-dasharray="3"/>
+        <text x="120" y="100" font-size="10" fill="#b71c1c">E (AR=AC)</text>
+        <text x="165" y="228" font-size="10">Q*</text><text x="25" y="116" font-size="10">P*</text>
+      </svg>
+      <div class="cap">चित्र: एकाधिकारात्मक प्रतियोगिता — दीर्घकालीन संतुलन (AR, AC को स्पर्श करती है; MR = MC)</div>
+    </div>
+
+    <h3>महत्व एवं आलोचना</h3>
+    <p><b>महत्व:</b> यथार्थ बाजार का निकटतम विश्लेषण, विज्ञापन-ब्रांडिंग की भूमिका, उपभोक्ता को विविधता।</p>
+    <p><b>आलोचना:</b> Excess Capacity के कारण बर्बादी, विज्ञापन व्यय, उपभोक्ता भ्रम।</p>
+
+    <div class="box answer">
+      <b>📝 परीक्षा में लिखने योग्य आदर्श उत्तर</b><br>
+      <b>भूमिका:</b> वास्तविक बाजार न पूर्ण प्रतियोगी, न पूर्ण एकाधिकारी; चैम्बरलिन ने मध्य स्थिति बताई।<br>
+      <b>मुख्य भाग:</b> परिभाषा → मिश्रित तत्व → विशेषताएँ → अल्पकालीन/दीर्घकालीन संतुलन → चित्र → Excess Capacity → महत्व एवं आलोचना।<br>
+      <b>निष्कर्ष:</b> यथार्थ बाजार का सर्वोत्तम वर्णन, परंतु दक्षता PC से कम।
+    </div>
+
+    <div class="kw"><span>उत्पाद विभेदीकरण</span><span>चैम्बरलिन</span><span>Excess Capacity</span><span>विक्रय लागत</span></div>
+  </article>
+
+  <!-- ============ Q14 ============ -->
+  <article class="q-card" id="q14">
+    <h2><span class="qnum">14</span>अल्पाधिकार और किंक्ड माँग वक्र</h2>
+
+    <h3>परिभाषा</h3>
+    <p>वह बाजार जिसमें कुछ ही बड़े विक्रेता होते हैं जो <b>परस्पर निर्भर (Interdependent)</b> होते हैं। उदाहरण: टेलीकॉम, ऑटोमोबाइल।</p>
+
+    <h3>विशेषताएँ</h3>
+    <ul>
+      <li>कुछ फर्में (2 से 10)।</li>
+      <li>परस्पर निर्भरता (सर्वप्रमुख)।</li>
+      <li>कीमत युद्ध, कार्टेल संभव।</li>
+      <li>प्रवेश में बाधाएँ।</li>
+      <li><b>कीमत कठोरता</b>।</li>
+    </ul>
+
+    <h3>किंक्ड माँग वक्र (Sweezy Model, 1939)</h3>
+    <ul>
+      <li>कीमत घटाई → प्रतिद्वंद्वी भी घटाएँगे → माँग अल्प लोचदार।</li>
+      <li>कीमत बढ़ाई → कोई नहीं बढ़ाएगा → ग्राहक जाएँगे → माँग अधिक लोचदार।</li>
+      <li>परिणाम: माँग वक्र में <b>किंक</b>, MR वक्र <b>टूटा हुआ</b>।</li>
+    </ul>
+
+    <div class="diagram">
+      <svg viewBox="0 0 360 250" width="360" height="250">
+        <line x1="45" y1="215" x2="330" y2="215" stroke="#333"/><line x1="45" y1="215" x2="45" y2="20" stroke="#333"/>
+        <text x="335" y="230" font-size="11" text-anchor="end">उत्पादन →</text><text x="50" y="15" font-size="11">कीमत ↑</text>
+        <line x1="70" y1="55" x2="170" y2="115" stroke="#1a237e" stroke-width="2.5"/>
+        <line x1="170" y1="115" x2="300" y2="195" stroke="#1a237e" stroke-width="2.5"/>
+        <text x="255" y="80" font-size="10" fill="#1a237e">AR (माँग)</text>
+        <circle cx="170" cy="115" r="5" fill="#d81b60"/>
+        <text x="176" y="110" font-size="10" fill="#d81b60">K (किंक)</text>
+        <line x1="70" y1="160" x2="170" y2="115" stroke="#2e7d32" stroke-width="2" stroke-dasharray="4"/>
+        <line x1="170" y1="115" x2="300" y2="90" stroke="#2e7d32" stroke-width="2" stroke-dasharray="4"/>
+        <text x="240" y="108" font-size="10" fill="#2e7d32">MR (टूटा हुआ)</text>
+      </svg>
+      <div class="cap">चित्र: किंक्ड माँग वक्र तथा टूटा हुआ MR वक्र</div>
+    </div>
+
+    <h3>अन्य मॉडल</h3>
+    <ul>
+      <li><b>कर्नाट मॉडल</b></li>
+      <li><b>बर्ट्रेंड मॉडल</b></li>
+      <li><b>स्टैकलबर्ग मॉडल</b></li>
+      <li><b>कार्टेल (OPEC)</b></li>
+    </ul>
+
+    <div class="box answer">
+      <b>📝 परीक्षा में लिखने योग्य आदर्श उत्तर</b><br>
+      <b>भूमिका:</b> अल्पाधिकार में कुछ बड़ी फर्में परस्पर निर्भर।<br>
+      <b>मुख्य भाग:</b> परिभाषा → विशेषताएँ → कीमत कठोरता → Sweezy मॉडल → चित्र → अन्य मॉडल।<br>
+      <b>निष्कर्ष:</b> मॉडल कीमत कठोरता की व्याख्या करता है, परंतु कीमत का स्तर स्वयं नहीं बताता।
+    </div>
+
+    <div class="kw"><span>परस्पर निर्भरता</span><span>Price Rigidity</span><span>Kinked Demand Curve</span><span>Sweezy</span><span>कार्टेल</span></div>
+  </article>
+
+  <!-- ============ Q15 ============ -->
+  <article class="q-card" id="q15">
+    <h2><span class="qnum">15</span>मजदूरी निर्धारण और सीमांत उत्पादकता सिद्धांत</h2>
+
+    <h3>परिभाषा</h3>
+    <p>किसी साधन (श्रम) की मजदूरी उसके <b>सीमांत उत्पाद के मूल्य (VMP)</b> के बराबर होती है। प्रस्ताव: <b>जे. बी. क्लार्क</b>।</p>
+
+    <div class="box formula">
+      <b>W = VMP<sub>L</sub> = MPP<sub>L</sub> × P</b><br>
+      W = मजदूरी · MPP = सीमांत भौतिक उत्पाद · P = कीमत · VMP = सीमांत उत्पाद का मूल्य
+    </div>
+
+    <h3>विस्तृत व्याख्या</h3>
+    <p>श्रम की माँग उसकी सीमांत उत्पादकता से निर्धारित होती है। फर्म उस बिंदु तक श्रमिक रखेगी जहाँ <b>मजदूरी = VMP</b>। ह्रासमान प्रतिफल के कारण VMP वक्र नीचे ढालू होता है, इसलिए श्रम माँग वक्र भी नीचे ढालू।</p>
+    <p>श्रम की <b>पूर्ति</b> मजदूरी दर के साथ सकारात्मक। माँग-पूर्ति के प्रतिच्छेदन से <b>संतुलन मजदूरी</b> तय होती है।</p>
+
+    <h3>मान्यताएँ</h3>
+    <ul>
+      <li>पूर्ण प्रतियोगिता।</li>
+      <li>श्रम समरूप एवं गतिशील।</li>
+      <li>मजदूरी लचीली।</li>
+      <li>सीमांत उत्पादकता ह्रासमान।</li>
+    </ul>
+
+    <div class="diagram">
+      <svg viewBox="0 0 360 240" width="360" height="240">
+        <line x1="45" y1="205" x2="330" y2="205" stroke="#333"/><line x1="45" y1="205" x2="45" y2="20" stroke="#333"/>
+        <text x="335" y="220" font-size="11" text-anchor="end">श्रम की मात्रा →</text>
+        <text x="50" y="15" font-size="11">मजदूरी दर ↑</text>
+        <line x1="70" y1="50" x2="290" y2="180" stroke="#1a237e" stroke-width="2.5"/>
+        <text x="240" y="85" font-size="10" fill="#1a237e">DL = VMP_L</text>
+        <line x1="70" y1="180" x2="290" y2="50" stroke="#d81b60" stroke-width="2.5"/>
+        <text x="240" y="170" font-size="10" fill="#d81b60">SL</text>
+        <circle cx="180" cy="115" r="5" fill="#2e7d32"/>
+        <line x1="180" y1="115" x2="180" y2="205" stroke="#999" stroke-dasharray="3"/>
+        <line x1="180" y1="115" x2="45" y2="115" stroke="#999" stroke-dasharray="3"/>
+        <text x="185" y="218" font-size="10">L*</text>
+        <text x="25" y="119" font-size="10">W*</text>
+      </svg>
+      <div class="cap">चित्र: श्रम बाजार संतुलन — W = VMP<sub>L</sub></div>
+    </div>
+
+    <h3>महत्व एवं आलोचना</h3>
+    <p><b>महत्व:</b> मजदूरी-रोजगार निर्धारण, आय वितरण, श्रम माँग विश्लेषण।</p>
+    <p><b>आलोचना:</b> अपूर्ण प्रतियोगिता, संघ की भूमिका, सरकारी हस्तक्षेप, MPP मापन कठिन।</p>
+
+    <div class="box answer">
+      <b>📝 परीक्षा में लिखने योग्य आदर्श उत्तर</b><br>
+      <b>भूमिका:</b> साधन मूल्य निर्धारण में मजदूरी सर्वाधिक महत्वपूर्ण।<br>
+      <b>मुख्य भाग:</b> परिभाषा → सूत्र → विस्तृत व्याख्या → मान्यताएँ → चित्र → महत्व → आलोचना।<br>
+      <b>निष्कर्ष:</b> प्रत्येक साधन को उसके सीमांत योगदान के अनुसार पारिश्रमिक — कार्यात्मक आय वितरण।
+    </div>
+
+    <div class="kw"><span>VMP</span><span>MPP</span><span>Marginal Productivity</span><span>श्रम माँग वक्र</span></div>
+  </article>
+
+  <!-- ============ Q16 ============ -->
+  <article class="q-card" id="q16">
+    <h2><span class="qnum">16</span>उपभोक्ता अधिशेष और उत्पादक अधिशेष</h2>
+
+    <div class="box formula">
+      <b>Consumer Surplus = भुगतान की तैयार कीमत − वास्तविक कीमत</b><br>
+      <b>Producer Surplus = वास्तविक कीमत − न्यूनतम स्वीकार्य कीमत</b>
+    </div>
+
+    <div class="diagram">
+      <svg viewBox="0 0 360 240" width="360" height="240">
+        <line x1="45" y1="205" x2="330" y2="205" stroke="#333"/><line x1="45" y1="205" x2="45" y2="20" stroke="#333"/>
+        <text x="335" y="220" font-size="11" text-anchor="end">मात्रा →</text><text x="50" y="15" font-size="11">कीमत ↑</text>
+        <line x1="60" y1="50" x2="300" y2="190" stroke="#1a237e" stroke-width="2.5"/>
+        <text x="240" y="80" font-size="10" fill="#1a237e">D</text>
+        <line x1="60" y1="190" x2="300" y2="50" stroke="#d81b60" stroke-width="2.5"/>
+        <text x="270" y="180" font-size="10" fill="#d81b60">S</text>
+        <circle cx="180" cy="120" r="4" fill="#2e7d32"/>
+        <line x1="180" y1="120" x2="180" y2="205" stroke="#999" stroke-dasharray="3"/>
+        <line x1="180" y1="120" x2="45" y2="120" stroke="#999" stroke-dasharray="3"/>
+        <text x="185" y="218" font-size="10">Q*</text><text x="30" y="123" font-size="10">P*</text>
+        <polygon points="60,50 180,120 60,120" fill="#bbdefb" opacity="0.75"/>
+        <polygon points="60,190 180,120 60,120" fill="#ffccbc" opacity="0.75"/>
+        <text x="85" y="102" font-size="10" fill="#0d47a1">CS</text>
+        <text x="85" y="152" font-size="10" fill="#b71c1c">PS</text>
+      </svg>
+      <div class="cap">चित्र: उपभोक्ता अधिशेष (CS) एवं उत्पादक अधिशेष (PS)</div>
+    </div>
+
+    <h3>संख्यात्मक उदाहरण</h3>
+    <div class="box example">
+      <b>उदाहरण 1:</b> चॉकलेट के लिए ₹50 देने को तैयार, बाजार में ₹30। CS = 50 − 30 = <b>₹20</b>।<br>
+      <b>उदाहरण 2:</b> उत्पादक ₹20 में बेचने को तैयार, बाजार में ₹35। PS = 35 − 20 = <b>₹15</b>।<br>
+      <b>उदाहरण 3:</b> CS = ₹500, PS = ₹300 → कुल कल्याण = <b>₹800</b>।
+    </div>
+
+    <div class="box answer">
+      <b>📝 परीक्षा में लिखने योग्य आदर्श उत्तर</b><br>
+      <b>भूमिका:</b> बाजार विनिमय से उपभोक्ता एवं उत्पादक दोनों को लाभ।<br>
+      <b>मुख्य भाग:</b> परिभाषा → सूत्र → चित्र → संख्यात्मक उदाहरण → कुल कल्याण → महत्व।<br>
+      <b>निष्कर्ष:</b> CS + PS = समाज का कुल आर्थिक कल्याण।
+    </div>
+
+    <div class="kw"><span>Consumer Surplus</span><span>Producer Surplus</span><span>कुल कल्याण</span><span>Deadweight Loss</span></div>
+  </article>
+
+  <!-- ============ Q17 ============ -->
+  <article class="q-card" id="q17">
+    <h2><span class="qnum">17</span>पैरेटो दक्षता (Pareto Efficiency)</h2>
+
+    <h3>परिभाषा</h3>
+    <p>वह स्थिति जिसमें संसाधनों का ऐसा आवंटन होता है कि <b>किसी एक व्यक्ति की स्थिति को बिना दूसरे की स्थिति खराब किए बेहतर नहीं बनाया जा सकता</b>। प्रस्ताव: <b>विल्फ्रेडो पैरेटो</b>।</p>
+
+    <h3>विस्तृत व्याख्या</h3>
+    <p>यदि किसी पुनर्वितरण से किसी को लाभ हो और किसी को हानि न हो, तो उसे <b>पैरेटो सुधार</b> कहते हैं। जब ऐसा कोई सुधार शेष न रहे, तो अर्थव्यवस्था पैरेटो दक्ष है। ध्यान दें — यह <b>न्याय (Equity) की गारंटी नहीं</b> देता; अत्यंत असमान वितरण भी पैरेटो-कुशल हो सकता है।</p>
+
+    <h3>तीन शर्तें</h3>
+    <div class="table-wrap">
+    <table>
+      <tr><th>क्षेत्र</th><th>शर्त</th><th>अर्थ</th></tr>
+      <tr><td>विनिमय दक्षता</td><td>MRS<sub>A</sub> = MRS<sub>B</sub></td><td>दो उपभोक्ताओं की MRS समान</td></tr>
+      <tr><td>उत्पादन दक्षता</td><td>MRTS<sub>X</sub> = MRTS<sub>Y</sub></td><td>दो वस्तुओं की MRTS समान</td></tr>
+      <tr><td>उत्पाद मिश्रण</td><td>MRS = MRT</td><td>उपभोक्ता व उत्पादक संतुलन</td></tr>
+    </table>
+    </div>
+
+    <div class="diagram">
+      <svg viewBox="0 0 360 240" width="360" height="240">
+        <line x1="45" y1="205" x2="330" y2="205" stroke="#333"/><line x1="45" y1="205" x2="45" y2="20" stroke="#333"/>
+        <text x="335" y="220" font-size="11" text-anchor="end">A की उपयोगिता →</text>
+        <text x="50" y="15" font-size="11">B की उपयोगिता ↑</text>
+        <path d="M60,45 C140,60 240,120 310,195" fill="none" stroke="#5e35b1" stroke-width="3"/>
+        <text x="180" y="75" font-size="10" fill="#5e35b1">उपयोगिता संभावना वक्र</text>
+        <circle cx="120" cy="58" r="4" fill="#d81b60"/>
+        <circle cx="200" cy="100" r="4" fill="#d81b60"/>
+        <circle cx="270" cy="160" r="4" fill="#d81b60"/>
+        <text x="70" y="200" font-size="10" fill="#666">वक्र पर सभी बिंदु = पैरेटो दक्ष</text>
+        <circle cx="120" cy="150" r="4" fill="#2e7d32"/>
+        <text x="128" y="148" font-size="10" fill="#2e7d32">अदक्ष</text>
+      </svg>
+      <div class="cap">चित्र: उपयोगिता संभावना वक्र — वक्र पर सभी बिंदु पैरेटो दक्ष</div>
+    </div>
+
+    <div class="box note"><b>ध्यान दें:</b> पैरेटो दक्षता न्याय की गारंटी नहीं देती। दक्षता और समानता दो भिन्न लक्ष्य हैं।</div>
+
+    <div class="box answer">
+      <b>📝 परीक्षा में लिखने योग्य आदर्श उत्तर</b><br>
+      <b>भूमिका:</b> कल्याण अर्थशास्त्र का केंद्रीय प्रश्न — संसाधनों का सर्वोत्तम आवंटन।<br>
+      <b>मुख्य भाग:</b> परिभाषा → पैरेटो सुधार → तीन शर्तें → चित्र → उदाहरण → न्याय से भिन्नता।<br>
+      <b>निष्कर्ष:</b> पैरेटो दक्षता आवंटन-कुशलता की कसौटी है, परंतु वितरणात्मक न्याय की उपेक्षा करती है।
+    </div>
+
+    <div class="kw"><span>Pareto Optimality</span><span>Pareto Improvement</span><span>MRS</span><span>MRTS</span><span>उपयोगिता संभावना वक्र</span></div>
+  </article>
+
+  <!-- ============ Q18 ============ -->
+  <article class="q-card" id="q18">
+    <h2><span class="qnum">18</span>बाजार विफलता, बाह्यताएँ और उनके उदाहरण</h2>
+
+    <h3>बाजार विफलता की परिभाषा</h3>
+    <p>जब मुक्त बाजार स्वतः संसाधनों का कुशलतम आवंटन नहीं कर पाता, तो उसे <b>बाजार विफलता</b> कहते हैं।</p>
+
+    <h3>कारण</h3>
+    <div class="table-wrap">
+    <table>
+      <tr><th>कारण</th><th>उदाहरण</th></tr>
+      <tr><td>बाह्यताएँ</td><td>प्रदूषण, टीकाकरण</td></tr>
+      <tr><td>सार्वजनिक वस्तुएँ</td><td>राष्ट्रीय सुरक्षा</td></tr>
+      <tr><td>अपूर्ण प्रतियोगिता</td><td>रेलवे, टेलीकॉम</td></tr>
+      <tr><td>असममित सूचना</td><td>बीमा, सेकंड-हैंड कार</td></tr>
+      <tr><td>सामान्य संसाधन</td><td>मत्स्य पालन, चरागाह</td></tr>
+      <tr><td>योग्यता वस्तुएँ</td><td>शिक्षा, स्वास्थ्य</td></tr>
+    </table>
+    </div>
+
+    <h3>बाह्यताएँ (Externalities)</h3>
+    <p>जब किसी आर्थिक क्रिया का प्रभाव तीसरे पक्ष पर पड़ता है और वह प्रभाव बाजार कीमत में शामिल नहीं होता।</p>
+
+    <div class="table-wrap">
+    <table>
+      <tr><th>प्रकार</th><th>शर्त</th><th>उदाहरण</th><th>परिणाम</th></tr>
+      <tr><td>ऋणात्मक</td><td>सामाजिक लागत &gt; निजी लागत</td><td>प्रदूषण, धुआँ</td><td>अत्यधिक उत्पादन</td></tr>
+      <tr><td>धनात्मक</td><td>सामाजिक लाभ &gt; निजी लाभ</td><td>शिक्षा, टीकाकरण</td><td>अल्प उत्पादन</td></tr>
+    </table>
+    </div>
+
+    <div class="diagram">
+      <svg viewBox="0 0 370 240" width="370" height="240">
+        <line x1="45" y1="205" x2="340" y2="205" stroke="#333"/><line x1="45" y1="205" x2="45" y2="20" stroke="#333"/>
+        <text x="345" y="220" font-size="11" text-anchor="end">मात्रा →</text><text x="50" y="15" font-size="11">कीमत/लागत ↑</text>
+        <line x1="60" y1="50" x2="300" y2="190" stroke="#1a237e" stroke-width="2.5"/>
+        <text x="240" y="80" font-size="10" fill="#1a237e">D = सामाजिक सीमांत लाभ</text>
+        <line x1="80" y1="190" x2="300" y2="90" stroke="#d81b60" stroke-width="2.5"/>
+        <text x="250" y="160" font-size="10" fill="#d81b60">MPC</text>
+        <line x1="80" y1="150" x2="320" y2="55" stroke="#b71c1c" stroke-width="2.5" stroke-dasharray="5"/>
+        <text x="255" y="55" font-size="10" fill="#b71c1c">MSC</text>
+        <circle cx="230" cy="122" r="4" fill="#2e7d32"/>
+        <circle cx="195" cy="105" r="4" fill="#f9a825"/>
+        <line x1="230" y1="122" x2="230" y2="205" stroke="#999" stroke-dasharray="3"/>
+        <line x1="195" y1="105" x2="195" y2="205" stroke="#999" stroke-dasharray="3"/>
+        <text x="232" y="218" font-size="10" fill="#2e7d32">Qmarket</text>
+        <text x="150" y="218" font-size="10" fill="#f9a825">Qsocial</text>
+      </svg>
+      <div class="cap">चित्र: ऋणात्मक बाह्यता — बाजार Q<sub>market</sub> &gt; सामाजिक इष्टतम Q<sub>social</sub></div>
+    </div>
+
+    <h3>सरकारी उपाय</h3>
+    <ul>
+      <li><b>पिगोवियन कर</b> — ऋणात्मक बाह्यता पर।</li>
+      <li><b>सब्सिडी</b> — धनात्मक बाह्यता पर।</li>
+      <li><b>प्रदूषण परमिट (Cap and Trade)</b></li>
+      <li><b>नियम-कानून एवं मानक</b></li>
+      <li><b>Coase प्रमेय</b> — संपत्ति अधिकार स्पष्ट हों तो पक्ष स्वयं समझौता करें।</li>
+    </ul>
+
+    <div class="box answer">
+      <b>📝 परीक्षा में लिखने योग्य आदर्श उत्तर</b><br>
+      <b>भूमिका:</b> आदर्श में बाजार कुशल आवंटन करता है (अदृश्य हाथ), परंतु कई स्थितियों में विफल होता है।<br>
+      <b>मुख्य भाग:</b> परिभाषा → छह कारण → बाह्यता विस्तार → चित्र → सरकारी उपाय।<br>
+      <b>निष्कर्ष:</b> सरकारी हस्तक्षेप आवश्यक, परंतु "सरकारी विफलता" से बचते हुए।
+    </div>
+
+    <div class="kw"><span>Market Failure</span><span>Externality</span><span>MSC vs MPC</span><span>पिगोवियन कर</span><span>Coase प्रमेय</span></div>
+  </article>
+
+  <!-- ============ Q19 ============ -->
+  <article class="q-card" id="q19">
+    <h2><span class="qnum">19</span>सार्वजनिक वस्तुएँ और फ्री-राइडर समस्या</h2>
+
+    <h3>परिभाषा</h3>
+    <p>वे वस्तुएँ जो <b>अप्रतिद्वंद्वी (Non-rival)</b> और <b>अपवर्जनीय (Non-excludable)</b> होती हैं।</p>
+    <ul>
+      <li><b>अप्रतिद्वंद्वी:</b> एक के उपभोग से दूसरे के लिए उपलब्ध मात्रा कम नहीं होती।</li>
+      <li><b>अपवर्जनीय:</b> भुगतान न करने वाले को रोका नहीं जा सकता।</li>
+    </ul>
+
+    <h3>वस्तुओं का वर्गीकरण</h3>
+    <div class="table-wrap">
+    <table>
+      <tr><th>प्रकार</th><th>प्रतिद्वंद्विता</th><th>अपवर्जनीयता</th><th>उदाहरण</th></tr>
+      <tr><td>निजी वस्तु</td><td>हाँ</td><td>हाँ</td><td>रोटी, कपड़ा</td></tr>
+      <tr><td>क्लब वस्तु</td><td>नहीं</td><td>हाँ</td><td>सिनेमा, टोल रोड</td></tr>
+      <tr><td>सामान्य संसाधन</td><td>हाँ</td><td>नहीं</td><td>मत्स्य, भूजल</td></tr>
+      <tr><td>शुद्ध सार्वजनिक</td><td>नहीं</td><td>नहीं</td><td>रक्षा, प्रकाश स्तंभ</td></tr>
+    </table>
+    </div>
+
+    <h3>फ्री-राइडर समस्या</h3>
+    <p>चूँकि सार्वजनिक वस्तु का उपभोग मुफ्त में हो सकता है, लोग भुगतान करने से बचते हैं और दूसरों के योगदान पर निर्भर रहते हैं। परिणाम: <b>अल्प उत्पादन</b>।</p>
+
+    <h3>उदाहरण</h3>
+    <div class="box example">
+      <b>1.</b> राष्ट्रीय सुरक्षा — सभी नागरिकों को समान सुरक्षा।<br>
+      <b>2.</b> प्रकाश स्तंभ (Lighthouse) — सभी जहाज़ लाभान्वित।<br>
+      <b>3.</b> सार्वजनिक पार्क, सड़क, पुलिस, बाढ़ नियंत्रण।
+    </div>
+
+    <h3>समाधान</h3>
+    <ul>
+      <li><b>कराधान</b> — सरकार द्वारा आपूर्ति।</li>
+      <li><b>क्लब वस्तु में रूपांतरण</b> — टोल, सदस्यता।</li>
+      <li><b>सामाजिक मानदंड / स्वैच्छिक योगदान।</b></li>
+      <li><b>निजीकरण</b> जहाँ संभव हो।</li>
+    </ul>
+
+    <div class="box answer">
+      <b>📝 परीक्षा में लिखने योग्य आदर्श उत्तर</b><br>
+      <b>भूमिका:</b> कुछ वस्तुएँ बाजार नहीं दे सकता — सार्वजनिक वस्तुएँ।<br>
+      <b>मुख्य भाग:</b> परिभाषा (Non-rival + Non-excludable) → 4-भागीय वर्गीकरण → उदाहरण → फ्री-राइडर → समाधान।<br>
+      <b>निष्कर्ष:</b> सरकारी हस्तक्षेप अनिवार्य, परंतु कर-भार में न्याय संतुलन आवश्यक।
+    </div>
+
+    <div class="kw"><span>Non-rival</span><span>Non-excludable</span><span>Free-rider</span><span>क्लब वस्तु</span><span>कराधान</span></div>
+  </article>
+
+  <!-- ============ Q20 ============ -->
+  <article class="q-card" id="q20">
+    <h2><span class="qnum">20</span>महत्वपूर्ण संख्यात्मक प्रश्न (हल सहित)</h2>
+
+    <h3>A. माँग की लोच</h3>
+    <div class="box example">
+      <b>प्रश्न:</b> कीमत ₹20 → ₹25, माँग 200 → 150। E?<br>
+      <b>चरण 1:</b> ΔP = 5, ΔQ = −50, P = 20, Q = 200<br>
+      <b>चरण 2:</b> E = (ΔQ/ΔP) × (P/Q)<br>
+      <b>चरण 3:</b> E = (−50/5) × (20/200) = −10 × 0.1 = −1<br>
+      <b>चरण 4:</b> निरपेक्ष मान<br>
+      <b>अंतिम उत्तर:</b> <b>|E| = 1 → इकाई लोचदार</b>
+    </div>
+
+    <h3>B. कुल एवं सीमांत उपयोगिता</h3>
+    <div class="table-wrap">
+    <table>
+      <tr><th>इकाई</th><th>TU</th><th>MU</th></tr>
+      <tr><td>1</td><td>10</td><td>10</td></tr>
+      <tr><td>2</td><td>18</td><td>8</td></tr>
+      <tr><td>3</td><td>24</td><td>6</td></tr>
+      <tr><td>4</td><td>28</td><td>4</td></tr>
+      <tr><td>5</td><td>30</td><td>2</td></tr>
+    </table>
+    </div>
+    <p>TU अधिकतम जब MU = 0; MU घटती जा रही है — ह्रास नियम लागू।</p>
+
+    <h3>C. लागत की गणना</h3>
+    <div class="box example">
+      <b>दिया गया:</b> Q = 4 पर TFC = 100, TVC = 160<br>
+      TC = 100 + 160 = <b>260</b><br>
+      AFC = 100/4 = <b>25</b><br>
+      AVC = 160/4 = <b>40</b><br>
+      AC = 260/4 = <b>65</b>
+    </div>
+
+    <h3>D. कुल, औसत एवं सीमांत राजस्व</h3>
+    <div class="table-wrap">
+    <table>
+      <tr><th>Q</th><th>P</th><th>TR</th><th>AR</th><th>MR</th></tr>
+      <tr><td>1</td><td>10</td><td>10</td><td>10</td><td>10</td></tr>
+      <tr><td>2</td><td>9</td><td>18</td><td>9</td><td>8</td></tr>
+      <tr><td>3</td><td>8</td><td>24</td><td>8</td><td>6</td></tr>
+      <tr><td>4</td><td>7</td><td>28</td><td>7</td><td>4</td></tr>
+    </table>
+    </div>
+    <p>AR &gt; MR, क्योंकि अधिक बेचने के लिए कीमत घटानी पड़ रही है।</p>
+
+    <h3>E. लाभ की गणना</h3>
+    <div class="box formula"><b>लाभ = TR − TC = (AR − AC) × Q</b></div>
+    <div class="box example">
+      <b>उदाहरण 1:</b> Q = 10, AR = ₹50, AC = ₹40 → लाभ = (50−40)×10 = <b>₹100</b><br>
+      <b>उदाहरण 2:</b> Q = 8, TR = ₹200, TC = ₹240 → लाभ = <b>−₹40 (हानि)</b><br>
+      <b>उदाहरण 3:</b> P = ₹25, AC = ₹25 → लाभ = 0 (सामान्य लाभ)
+    </div>
+
+    <div class="box answer">
+      <b>📝 परीक्षा में लिखने योग्य आदर्श उत्तर</b><br>
+      <b>भूमिका:</b> संख्यात्मक प्रश्नों का विशेष महत्व।<br>
+      <b>मुख्य भाग:</b> दिए गए मान → सूत्र → मान रखो → गणना → अंतिम उत्तर (इकाई सहित)।<br>
+      <b>निष्कर्ष:</b> सही सूत्र एवं इकाई अनिवार्य; अंतिम उत्तर के साथ आर्थिक अर्थ भी लिखें।
+    </div>
+
+    <div class="kw"><span>Ed</span><span>TU/MU</span><span>TC/AC/MC</span><span>TR/AR/MR</span><span>लाभ = TR − TC</span></div>
+  </article>
+
+  <!-- ============ FORMULA SHEET ============ -->
+  <article class="q-card" id="formulas">
+    <h2><span class="qnum">📘</span>मास्टर फॉर्मूला शीट</h2>
+    <div class="table-wrap">
+    <table>
+      <tr><th>विषय</th><th>सूत्र</th></tr>
+      <tr><td>माँग की लोच</td><td>E<sub>d</sub> = (ΔQ/ΔP) × (P/Q)</td></tr>
+      <tr><td>चाप विधि</td><td>E = (ΔQ / ((Q₁+Q₂)/2)) ÷ (ΔP / ((P₁+P₂)/2))</td></tr>
+      <tr><td>कुल उपयोगिता</td><td>TU<sub>n</sub> = TU<sub>n−1</sub> + MU<sub>n</sub></td></tr>
+      <tr><td>उपभोक्ता संतुलन</td><td>MU<sub>X</sub>/P<sub>X</sub> = MU<sub>Y</sub>/P<sub>Y</sub></td></tr>
+      <tr><td>बजट रेखा</td><td>P<sub>X</sub>X + P<sub>Y</sub>Y = M</td></tr>
+      <tr><td>MRS</td><td>ΔY/ΔX = MU<sub>X</sub>/MU<sub>Y</sub></td></tr>
+      <tr><td>MRT</td><td>ΔY/ΔX</td></tr>
+      <tr><td>औसत उत्पाद</td><td>AP = TP/L</td></tr>
+      <tr><td>सीमांत उत्पाद</td><td>MP = ΔTP/ΔL</td></tr>
+      <tr><td>कुल लागत</td><td>TC = TFC + TVC</td></tr>
+      <tr><td>AFC</td><td>TFC/Q</td></tr>
+      <tr><td>AVC</td><td>TVC/Q</td></tr>
+      <tr><td>AC</td><td>TC/Q = AFC + AVC</td></tr>
+      <tr><td>MC</td><td>ΔTC/ΔQ</td></tr>
+      <tr><td>TR</td><td>P × Q</td></tr>
+      <tr><td>AR</td><td>TR/Q = P</td></tr>
+      <tr><td>MR</td><td>ΔTR/ΔQ</td></tr>
+      <tr><td>लाभ</td><td>π = TR − TC = (AR − AC) × Q</td></tr>
+      <tr><td>संतुलन (सामान्य)</td><td>MR = MC</td></tr>
+      <tr><td>PC संतुलन</td><td>P = AR = MR = MC</td></tr>
+      <tr><td>एकाधिकार संतुलन</td><td>MR = MC, P &gt; MC</td></tr>
+      <tr><td>बंदी बिंदु</td><td>P = AVC</td></tr>
+      <tr><td>मजदूरी</td><td>W = VMP<sub>L</sub> = MPP<sub>L</sub> × P</td></tr>
+      <tr><td>CS</td><td>तैयार कीमत − वास्तविक</td></tr>
+      <tr><td>PS</td><td>वास्तविक − न्यूनतम स्वीकार्य</td></tr>
+      <tr><td>पैरेटो (विनिमय)</td><td>MRS<sub>A</sub> = MRS<sub>B</sub></td></tr>
+      <tr><td>पैरेटो (उत्पादन)</td><td>MRTS<sub>X</sub> = MRTS<sub>Y</sub></td></tr>
+    </table>
+    </div>
+  </article>
+
+  <!-- ============ COMPARISON TABLES ============ -->
+  <article class="q-card" id="compare">
+    <h2><span class="qnum">📊</span>महत्वपूर्ण तुलना तालिकाएँ</h2>
+
+    <h3>1. चारों बाजार संरचनाओं की तुलना</h3>
+    <div class="table-wrap">
+    <table>
+      <tr><th>आधार</th><th>PC</th><th>Monopolistic</th><th>Oligopoly</th><th>Monopoly</th></tr>
+      <tr><td>फर्में</td><td>अत्यधिक</td><td>अनेक</td><td>कुछ</td><td>एक</td></tr>
+      <tr><td>वस्तु</td><td>समरूप</td><td>विभेदित</td><td>समरूप/विभेदित</td><td>अद्वितीय</td></tr>
+      <tr><td>कीमत नियंत्रण</td><td>कोई नहीं</td><td>कुछ</td><td>परस्पर निर्भर</td><td>पूर्ण</td></tr>
+      <tr><td>माँग वक्र</td><td>क्षैतिज</td><td>लोचदार</td><td>किंक्ड</td><td>अल्प लोचदार</td></tr>
+      <tr><td>प्रवेश</td><td>स्वतंत्र</td><td>स्वतंत्र</td><td>बाधित</td><td>रोक</td></tr>
+      <tr><td>दीर्घकालीन लाभ</td><td>सामान्य</td><td>सामान्य</td><td>असाधारण</td><td>असाधारण</td></tr>
+      <tr><td>विज्ञापन</td><td>नहीं</td><td>अत्यधिक</td><td>अत्यधिक</td><td>कम</td></tr>
+    </table>
+    </div>
+
+    <h3>2. माँग में परिवर्तन vs माँगी मात्रा में परिवर्तन</h3>
+    <div class="table-wrap">
+    <table>
+      <tr><th>आधार</th><th>माँग में परिवर्तन</th><th>माँगी मात्रा में परिवर्तन</th></tr>
+      <tr><td>कारण</td><td>कीमत के अतिरिक्त कारक</td><td>केवल स्वयं कीमत</td></tr>
+      <tr><td>चित्र</td><td>वक्र खिसकता है</td><td>वक्र पर गति</td></tr>
+      <tr><td>उदाहरण</td><td>आय/फैशन बदलना</td><td>₹10 → ₹12</td></tr>
+    </table>
+    </div>
+
+    <h3>3. अल्पकाल vs दीर्घकाल</h3>
+    <div class="table-wrap">
+    <table>
+      <tr><th>आधार</th><th>अल्पकाल</th><th>दीर्घकाल</th></tr>
+      <tr><td>स्थिर साधन</td><td>मौजूद</td><td>नहीं</td></tr>
+      <tr><td>प्रवेश-निकास</td><td>नहीं</td><td>हाँ</td></tr>
+      <tr><td>लाभ</td><td>असाधारण संभव</td><td>सामान्य (PC/MC में)</td></tr>
+      <tr><td>TFC</td><td>होती है</td><td>नहीं</td></tr>
+    </table>
+    </div>
+  </article>
+
+  <!-- ============ ANSWER TIPS ============ -->
+  <article class="q-card" id="tips">
+    <h2><span class="qnum">✍️</span>उत्तर-लेखन सुझाव</h2>
+
+    <h3>2 अंक के प्रश्न</h3>
+    <ul>
+      <li>केवल परिभाषा + 2–3 मुख्य बिंदु।</li>
+      <li>उत्तर 60–80 शब्दों में।</li>
+      <li>चित्र आवश्यक नहीं।</li>
+    </ul>
+
+    <h3>5 अंक के प्रश्न</h3>
+    <ul>
+      <li>परिभाषा + विशेषताएँ + छोटा उदाहरण।</li>
+      <li>आवश्यक हो तो छोटा चित्र/तालिका।</li>
+      <li>150–200 शब्द; उपशीर्षक का प्रयोग।</li>
+    </ul>
+
+    <h3>10 अंक के प्रश्न</h3>
+    <ul>
+      <li>भूमिका → व्याख्या → तालिका/चित्र → संख्यात्मक उदाहरण → निष्कर्ष।</li>
+      <li>400–500 शब्द।</li>
+      <li>चित्र में X/Y अक्ष, वक्र नाम, संतुलन बिंदु अवश्य दर्शाएँ।</li>
+      <li>चित्र के नीचे एक पंक्ति में निष्कर्ष लिखें।</li>
+    </ul>
+
+    <div class="box note">
+      <b>सुझाव:</b> जिन प्रश्नों में चित्र अनिवार्य — PPC, माँग वक्र, लोच के 5 प्रकार, IC, बजट रेखा, परिवर्तनशील अनुपात की तीन अवस्थाएँ, AFC/AVC/AC/MC, PC संतुलन, एकाधिकार संतुलन, किंक्ड माँग वक्र, एकाधिकारात्मक प्रतियोगिता दीर्घकालीन संतुलन, श्रम बाजार, CS/PS, बाह्यता।
+    </div>
+  </article>
+
+  <!-- ============ PRACTICE ============ -->
+  <article class="q-card" id="practice">
+    <h2><span class="qnum">❓</span>अभ्यास प्रश्न (15) + उत्तर-कुंजी</h2>
+    <ol>
+      <li>सूक्ष्म एवं समष्टि अर्थशास्त्र के तीन अंतर लिखें।</li>
+      <li>PPC के चार गुण बताएँ।</li>
+      <li>माँग के नियम की दो मान्यताएँ और दो अपवाद।</li>
+      <li>माँग की लोच के पाँच प्रकार।</li>
+      <li>MU ह्रास का नियम क्या है? उदाहरण दें।</li>
+      <li>IC की चार विशेषताएँ।</li>
+      <li>MRS क्या है? सूत्र लिखें।</li>
+      <li>परिवर्तनशील अनुपात की तीन अवस्थाएँ।</li>
+      <li>TC, AC और MC में संबंध।</li>
+      <li>PC में फर्म के संतुलन की दो शर्तें।</li>
+      <li>एकाधिकार और PC के तीन अंतर।</li>
+      <li>किंक्ड माँग वक्र क्या दर्शाता है?</li>
+      <li>CS की परिभाषा और सूत्र।</li>
+      <li>बाजार विफलता के दो कारण।</li>
+      <li>सार्वजनिक वस्तु और फ्री-राइडर समस्या उदाहरण सहित।</li>
+    </ol>
+
+    <h3>उत्तर-कुंजी (संकेत)</h3>
+    <ol>
+      <li>अध्ययन इकाई, मुख्य चर, उपकरण।</li>
+      <li>अवतल, ऋणात्मक ढाल, अवसर लागत, तीन स्थितियाँ।</li>
+      <li>मान्यताएँ: आय/रुचि स्थिर। अपवाद: गिफेन, वेब्लेन।</li>
+      <li>0, &lt;1, =1, &gt;1, ∞।</li>
+      <li>अतिरिक्त इकाई से MU घटती — पहला vs चौथा गिलास।</li>
+      <li>उत्तल, ऋणात्मक, न काटें, ऊँचा = अधिक संतुष्टि।</li>
+      <li>MRS = ΔY/ΔX = MU<sub>X</sub>/MU<sub>Y</sub>।</li>
+      <li>वर्धमान, ह्रासमान, ऋणात्मक।</li>
+      <li>AC = TC/Q; MC = ΔTC/ΔQ; MC, AC को न्यूनतम पर काटती।</li>
+      <li>MR = MC और MC बढ़ती हुई।</li>
+      <li>संख्या, कीमत शक्ति, माँग वक्र आकार।</li>
+      <li>अल्पाधिकार में कीमत कठोरता।</li>
+      <li>तैयार − वास्तविक कीमत।</li>
+      <li>बाह्यताएँ, सार्वजनिक वस्तुएँ।</li>
+      <li>Non-rival + Non-excludable; मुफ्त उपभोग प्रवृत्ति।</li>
+    </ol>
+  </article>
+
+  <!-- ============ QUICK REVISION ============ -->
+  <article class="q-card" id="revision">
+    <h2><span class="qnum">⚡</span>क्विक रिवीजन नोट्स</h2>
+    <ul>
+      <li>सूक्ष्म = व्यक्तिगत; समष्टि = समग्र; दोनों पूरक।</li>
+      <li>PPC अवतल = बढ़ती अवसर लागत; MRT = ΔY/ΔX।</li>
+      <li>माँग नियम: कीमत ↑ → माँग ↓ (ceteris paribus)।</li>
+      <li>E = %ΔQ/%ΔP; 5 प्रकार।</li>
+      <li>MU ह्रास → TU अधिकतम जब MU = 0।</li>
+      <li>IC उत्तल; MRS घटती; IC नहीं काटते।</li>
+      <li>संतुलन: MU<sub>X</sub>/P<sub>X</sub> = MU<sub>Y</sub>/P<sub>Y</sub>।</li>
+      <li>अल्पकाल में 3 अवस्थाएँ; MP = 0 पर TP अधिकतम।</li>
+      <li>MC, AC को न्यूनतम बिंदु पर काटती।</li>
+      <li>PC: P = MR = AR; संतुलन MR = MC।</li>
+      <li>एकाधिकार: P &gt; MC; MR &lt; AR।</li>
+      <li>अल्पाधिकार: कीमत कठोरता (किंक्ड माँग)।</li>
+      <li>CS + PS = कुल कल्याण।</li>
+      <li>पैरेटो दक्षता = बिना हानि कोई लाभ संभव नहीं।</li>
+      <li>बाजार विफलता: बाह्यता, सार्वजनिक वस्तु, अपूर्ण प्रतियोगिता।</li>
+      <li>सार्वजनिक वस्तु → फ्री-राइडर → सरकारी आपूर्ति।</li>
+      <li>परीक्षा में: सूत्र → मान रखो → गणना → उत्तर + आर्थिक अर्थ।</li>
+    </ul>
+
+    <div class="box note">
+      <b>स्रोत-सत्यापन:</b> यह सामग्री मानक Introductory Microeconomics सिद्धांतों (NCERT, IGNOU BECC-101 विषय-सूची, मार्शल, चैम्बरलिन, हिक्स-एलन, Sweezy, पैरेटो, क्लार्क) पर आधारित है। किसी विशिष्ट प्रश्न को "PYQ में आया" नहीं कहा गया; छात्र IGNOU की आधिकारिक वेबसाइट (ignou.ac.in) से नवीनतम प्रश्नपत्र एवं सत्रीय कार्य देखें।
+    </div>
+  </article>
+
+  </main>
+</div>
+
+<footer>
+  <p>© BECC-101 Introductory Microeconomics · दिसंबर 2026 हिंदी नोट्स</p>
+  <p style="margin-top:6px;">बनाया गया <span class="heart">❤</span> के साथ परीक्षा-तैयारी के लिए</p>
+</footer>
+
+<!-- ==================== FLOATING ACTIONS ==================== -->
+<div class="fab-group">
+  <button class="fab secondary" id="topBtn" title="Top">↑</button>
+  <button class="fab" id="printFab" title="PDF">📥</button>
+</div>
+
+<script>
+/* ==================== PROGRESS BAR ==================== */
+const progress = document.getElementById('progress');
+function updateProgress() {
+  const h = document.documentElement;
+  const p = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+  progress.style.width = p + '%';
+}
+window.addEventListener('scroll', updateProgress, { passive: true });
+
+/* ==================== SIDEBAR TOGGLE ==================== */
+const sidebar = document.getElementById('tocSidebar');
+const backdrop = document.getElementById('tocBackdrop');
+const menuBtn = document.getElementById('menuBtn');
+function toggleSidebar(open) {
+  sidebar.classList.toggle('open', open);
+  backdrop.classList.toggle('show', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+}
+menuBtn.addEventListener('click', () => toggleSidebar(!sidebar.classList.contains('open')));
+backdrop.addEventListener('click', () => toggleSidebar(false));
+document.querySelectorAll('.toc-sidebar a').forEach(a => {
+  a.addEventListener('click', () => {
+    if (window.innerWidth <= 900) toggleSidebar(false);
+  });
+});
+
+/* ==================== THEME TOGGLE ==================== */
+const themeBtn = document.getElementById('themeBtn');
+const savedTheme = localStorage.getItem('becc-theme') || 'light';
+document.documentElement.setAttribute('data-theme', savedTheme);
+themeBtn.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+themeBtn.addEventListener('click', () => {
+  const cur = document.documentElement.getAttribute('data-theme');
+  const next = cur === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  themeBtn.textContent = next === 'dark' ? '☀️' : '🌙';
+  localStorage.setItem('becc-theme', next);
+});
+
+/* ==================== PRINT ==================== */
+document.getElementById('printBtn').addEventListener('click', () => window.print());
+document.getElementById('printFab').addEventListener('click', () => window.print());
+
+/* ==================== BACK TO TOP ==================== */
+document.getElementById('topBtn').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+/* ==================== FADE-IN ON SCROLL ==================== */
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.q-card').forEach(c => observer.observe(c));
+
+/* ==================== TOC ACTIVE HIGHLIGHT ==================== */
+const tocLinks = document.querySelectorAll('.toc-sidebar a');
+const sections = [...tocLinks].map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+const tocObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      tocLinks.forEach(l => l.classList.remove('active'));
+      const id = e.target.id;
+      const active = document.querySelector(`.toc-sidebar a[href="#${id}"]`);
+      if (active) active.classList.add('active');
+    }
+  });
+}, { rootMargin: '-25% 0px -70% 0px' });
+sections.forEach(s => tocObserver.observe(s));
+
+/* ==================== LIVE SEARCH ==================== */
+const searchInput = document.getElementById('searchInput');
+const allCards = [...document.querySelectorAll('.q-card')];
+let debounce;
+searchInput.addEventListener('input', (e) => {
+  clearTimeout(debounce);
+  debounce = setTimeout(() => {
+    const q = e.target.value.trim().toLowerCase();
+    if (!q) {
+      allCards.forEach(c => c.classList.remove('hidden'));
+      document.querySelectorAll('mark').forEach(m => {
+        m.replaceWith(document.createTextNode(m.textContent));
+      });
+      return;
+    }
+    allCards.forEach(card => {
+      const text = card.textContent.toLowerCase();
+      card.classList.toggle('hidden', !text.includes(q));
+    });
+  }, 180);
+});
+searchInput.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    searchInput.value = '';
+    searchInput.dispatchEvent(new Event('input'));
+  }
+});
+
+/* ==================== KEYBOARD SHORTCUTS ==================== */
+document.addEventListener('keydown', (e) => {
+  if (e.key === '/' && document.activeElement !== searchInput) {
+    e.preventDefault(); searchInput.focus();
+  }
+  if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'p') {
+    /* browser default handles print */
+  }
+});
+</script>
+</body>
+</html>
